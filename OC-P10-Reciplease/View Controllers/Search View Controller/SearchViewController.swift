@@ -11,6 +11,14 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        setupUI()
+    }
+}
+
+//MARK: - User Interface Configuration
+extension SearchViewController {
+    private func setupUI() {
+        let tab = UITabBarItem(title: "Search", image: UIImage(systemName: "fork.knife.circle"), selectedImage: UIImage(systemName: "fork.knife.circle.fill"))
+        tabBarItem = tab
     }
 }

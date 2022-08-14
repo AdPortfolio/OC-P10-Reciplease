@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = appCoordinator.rootViewController
         //   window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
         window?.makeKeyAndVisible()
+        appCoordinator.start()
         return true
     }
 }
