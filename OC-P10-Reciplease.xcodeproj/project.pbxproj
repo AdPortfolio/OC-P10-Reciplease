@@ -11,6 +11,7 @@
 		59CB51CF28A82C82001CC061 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51CE28A82C82001CC061 /* ViewController.swift */; };
 		59CB51D428A82C83001CC061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59CB51D328A82C83001CC061 /* Assets.xcassets */; };
 		59CB51D728A82C83001CC061 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59CB51D528A82C83001CC061 /* LaunchScreen.storyboard */; };
+		59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51E428A88A36001CC061 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		59CB51D328A82C83001CC061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59CB51D628A82C83001CC061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59CB51DF28A86939001CC061 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59CB51E428A88A36001CC061 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51DE28A85DF1001CC061 /* App Delegates */,
+				59CB51E328A889F1001CC061 /* Coordinator */,
 				59CB51CE28A82C82001CC061 /* ViewController.swift */,
 				59CB51E228A86AA9001CC061 /* Supporting Files */,
 			);
@@ -75,6 +78,22 @@
 				59CB51DF28A86939001CC061 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		59CB51E328A889F1001CC061 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				59CB51E428A88A36001CC061 /* Coordinator.swift */,
+				59CB51E628A88A57001CC061 /* App Coordinator */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		59CB51E628A88A57001CC061 /* App Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "App Coordinator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +168,7 @@
 			files = (
 				59CB51CF28A82C82001CC061 /* ViewController.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
+				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
