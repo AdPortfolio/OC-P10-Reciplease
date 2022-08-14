@@ -37,6 +37,8 @@
 		59CB522028A93128001CC061 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */; };
 		59CB522428A939AC001CC061 /* RecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */; };
 		59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522528A939C5001CC061 /* CustomTableViewCell.swift */; };
+		59CB522828A93D7E001CC061 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522728A93D7E001CC061 /* ImageViewBuilder.swift */; };
+		59CB522B28A93EAA001CC061 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522A28A93EAA001CC061 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 		59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModel.swift; sourceTree = "<group>"; };
 		59CB522528A939C5001CC061 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		59CB522728A93D7E001CC061 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
+		59CB522A28A93EAA001CC061 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		59CB51C928A82C82001CC061 /* OC-P10-Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				59CB522928A93EA0001CC061 /* Models */,
 				59CB51DE28A85DF1001CC061 /* App Delegates */,
 				59CB51E328A889F1001CC061 /* Coordinator */,
 				59CB51EE28A88BAC001CC061 /* View Controllers */,
@@ -227,6 +232,7 @@
 				59CB520B28A89990001CC061 /* TextFieldBuilder.swift */,
 				59CB520D28A899D2001CC061 /* TableViewBuilder.swift */,
 				59CB520F28A899E9001CC061 /* ButtonBuilder.swift */,
+				59CB522728A93D7E001CC061 /* ImageViewBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -281,6 +287,14 @@
 				59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */,
 			);
 			path = "Cell View Models";
+			sourceTree = "<group>";
+		};
+		59CB522928A93EA0001CC061 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59CB522A28A93EAA001CC061 /* Recipe.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +376,7 @@
 				59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */,
 				59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */,
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
+				59CB522B28A93EAA001CC061 /* Recipe.swift in Sources */,
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
 				59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */,
 				59CB522428A939AC001CC061 /* RecipeCellViewModel.swift in Sources */,
@@ -378,6 +393,7 @@
 				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
 				59CB521B28A921EA001CC061 /* UIViewController+Alerts.swift in Sources */,
 				59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */,
+				59CB522828A93D7E001CC061 /* ImageViewBuilder.swift in Sources */,
 				59CB521928A8A752001CC061 /* FavoritesViewModel.swift in Sources */,
 				59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
