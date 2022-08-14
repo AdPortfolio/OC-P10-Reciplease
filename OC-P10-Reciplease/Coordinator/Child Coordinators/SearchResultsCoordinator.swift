@@ -31,6 +31,16 @@ extension SearchResultsCoordinator {
         let network = RecipeNetwork()
         let viewModel = SearchResultsViewModel(network: network, ingredients: ingredients)
         let viewController = SearchResultsViewController(viewModel: viewModel)
+        
+        viewController.didGetDetails = { [weak self] cell in
+            self?.getDetails(cell: cell)
+        }
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    private func getDetails(cell: RecipeCellViewModel) {
+        let detailsCoordinator = DetailsCoordinator(navigationController: navigationController, cell: cell)
+        detailsCoordinator.parentCoordinator = self
+        pushCoordinator(detailsCoordinator)
     }
 }

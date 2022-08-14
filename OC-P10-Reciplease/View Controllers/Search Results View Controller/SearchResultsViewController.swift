@@ -12,6 +12,9 @@ final class SearchResultsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: SearchResultsViewModel!
     
+    // MARK: - Closures
+    var didGetDetails: ((RecipeCellViewModel) -> Void)?
+    
     // MARK: - User Interface Properties
     private let resultsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
@@ -57,6 +60,10 @@ extension SearchResultsViewController {
         viewModel.backButtonItemTitleUpdater = { title in
             self.navigationItem.backButtonTitle = title
         }
+        
+        viewModel.didGetDetails = { recipeVM in
+            self.didGetDetails?(recipeVM)
+        }
     }
 }
 
@@ -75,4 +82,3 @@ extension SearchResultsViewController {
         resultsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
-
