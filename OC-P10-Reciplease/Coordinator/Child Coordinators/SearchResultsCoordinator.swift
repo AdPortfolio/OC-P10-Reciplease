@@ -18,4 +18,17 @@ final class SearchResultsCoordinator: Coordinator {
         self.ingredients = ingredients
         super.init()
     }
+    
+    override func start() {
+        navigationController.delegate = self
+        showSearchResultsScreen()
+    }
+}
+
+extension SearchResultsCoordinator {
+    
+    private func showSearchResultsScreen() {
+        let viewController = SearchResultsViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
