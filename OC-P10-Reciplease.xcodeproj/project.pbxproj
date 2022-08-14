@@ -29,6 +29,8 @@
 		59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520B28A89990001CC061 /* TextFieldBuilder.swift */; };
 		59CB520E28A899D2001CC061 /* TableViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520D28A899D2001CC061 /* TableViewBuilder.swift */; };
 		59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520F28A899E9001CC061 /* ButtonBuilder.swift */; };
+		59CB521328A89DBD001CC061 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521228A89DBD001CC061 /* SearchViewModel.swift */; };
+		59CB521628A8A2E3001CC061 /* String+Capitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521528A8A2E3001CC061 /* String+Capitals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		59CB520B28A89990001CC061 /* TextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBuilder.swift; sourceTree = "<group>"; };
 		59CB520D28A899D2001CC061 /* TableViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBuilder.swift; sourceTree = "<group>"; };
 		59CB520F28A899E9001CC061 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
+		59CB521228A89DBD001CC061 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		59CB521528A8A2E3001CC061 /* String+Capitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Capitals.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				59CB51E328A889F1001CC061 /* Coordinator */,
 				59CB51EE28A88BAC001CC061 /* View Controllers */,
 				59CB520428A8985C001CC061 /* Builders */,
+				59CB521428A8A2D2001CC061 /* Extensions */,
 				59CB51E228A86AA9001CC061 /* Supporting Files */,
 			);
 			path = "OC-P10-Reciplease";
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51F628A890DE001CC061 /* SearchViewController.swift */,
+				59CB521128A89DAE001CC061 /* Search View Model */,
 			);
 			path = "Search View Controller";
 			sourceTree = "<group>";
@@ -209,6 +215,22 @@
 				59CB520F28A899E9001CC061 /* ButtonBuilder.swift */,
 			);
 			path = Builders;
+			sourceTree = "<group>";
+		};
+		59CB521128A89DAE001CC061 /* Search View Model */ = {
+			isa = PBXGroup;
+			children = (
+				59CB521228A89DBD001CC061 /* SearchViewModel.swift */,
+			);
+			path = "Search View Model";
+			sourceTree = "<group>";
+		};
+		59CB521428A8A2D2001CC061 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				59CB521528A8A2E3001CC061 /* String+Capitals.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +318,8 @@
 				59CB520E28A899D2001CC061 /* TableViewBuilder.swift in Sources */,
 				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
 				59CB520A28A89931001CC061 /* LabelBuilder.swift in Sources */,
+				59CB521628A8A2E3001CC061 /* String+Capitals.swift in Sources */,
+				59CB521328A89DBD001CC061 /* SearchViewModel.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
 				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
 				59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */,
