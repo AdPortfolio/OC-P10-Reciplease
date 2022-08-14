@@ -77,6 +77,7 @@ final class SearchViewController: UIViewController {
     // Table View
     private let ingredientsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
+        .addRefreshControl(false)
         .registerCell(cellClass: UITableViewCell.self, and: "Cell")
         .build()
     
