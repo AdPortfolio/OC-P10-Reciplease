@@ -11,17 +11,13 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Properties
     private var viewModel: SearchViewModel
+    
     private var searchIngredients: String = ""
     private var ingredientsArray = [String]()
+    private  let vegetables = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥬","🥒","🌶","🫑","🌽","🥕","🫒","🧄","🧅","🥔","🍠","🥩","🍗","🥚","🧀"]
     
-    init(viewModel: SearchViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    // MARK: - Closures
+    var didSearchResults: ((String) -> Void)?
     
     // MARK: - User Interface Properties
     // Views
@@ -113,6 +109,15 @@ final class SearchViewController: UIViewController {
         .build()
     
     // MARK: - View Controller Life Cycle
+    init(viewModel: SearchViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ingredientsTableView.reloadData()
@@ -144,6 +149,22 @@ final class SearchViewController: UIViewController {
     }
     
     @objc private func searchRecipe() {
+        guard ingredientsArray.count > 0 else {
+            alert(message: "Please enter at least one ingredient \(vegetables.randomElement() ?? "🧄")", title: "Ouch..")
+            return
+        }
+        searchIngredients = createSearchIngredientsFrom(text: &searchIngredients)
+        didSearchResults?(searchIngredients)
+    }
+    
+    // MARK: Helpers
+    private func createSearchIngredientsFrom(text: inout String) -> String {
+        text = text.replacingOccurrences(of: "-", with: "")
+        while let rangeToReplace = text.range(of: "\n") {
+            text.replaceSubrange(rangeToReplace, with: ",")
+        }
+        text = text.trim()
+        return text
     }
 }
 
