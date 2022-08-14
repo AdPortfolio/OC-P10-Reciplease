@@ -31,6 +31,7 @@
 		59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520F28A899E9001CC061 /* ButtonBuilder.swift */; };
 		59CB521328A89DBD001CC061 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521228A89DBD001CC061 /* SearchViewModel.swift */; };
 		59CB521628A8A2E3001CC061 /* String+Capitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521528A8A2E3001CC061 /* String+Capitals.swift */; };
+		59CB521928A8A752001CC061 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521828A8A752001CC061 /* FavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		59CB520F28A899E9001CC061 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		59CB521228A89DBD001CC061 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		59CB521528A8A2E3001CC061 /* String+Capitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Capitals.swift"; sourceTree = "<group>"; };
+		59CB521828A8A752001CC061 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51F928A891CD001CC061 /* FavoritesViewController.swift */,
+				59CB521728A8A6F4001CC061 /* View Models */,
 			);
 			path = "Favorites View Controller";
 			sourceTree = "<group>";
@@ -231,6 +234,14 @@
 				59CB521528A8A2E3001CC061 /* String+Capitals.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		59CB521728A8A6F4001CC061 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				59CB521828A8A752001CC061 /* FavoritesViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
 				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
 				59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */,
+				59CB521928A8A752001CC061 /* FavoritesViewModel.swift in Sources */,
 				59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
 			);
