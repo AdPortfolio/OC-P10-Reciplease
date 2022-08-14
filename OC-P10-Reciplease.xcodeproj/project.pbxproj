@@ -39,9 +39,11 @@
 		59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522528A939C5001CC061 /* CustomTableViewCell.swift */; };
 		59CB522828A93D7E001CC061 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522728A93D7E001CC061 /* ImageViewBuilder.swift */; };
 		59CB522B28A93EAA001CC061 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522A28A93EAA001CC061 /* Recipe.swift */; };
+		806D9E13D204D4D55548C0F7 /* libPods-OC-P10-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC-P10-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CB51C728A82C82001CC061 /* OC-P10-Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-P10-Reciplease.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CB51CA28A82C82001CC061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59CB51CE28A82C82001CC061 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		59CB522528A939C5001CC061 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		59CB522728A93D7E001CC061 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
 		59CB522A28A93EAA001CC061 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		ED94D0BFD773A8260598DF27 /* Pods-OC-P10-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806D9E13D204D4D55548C0F7 /* libPods-OC-P10-Reciplease.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,8 @@
 			children = (
 				59CB51C928A82C82001CC061 /* OC-P10-Reciplease */,
 				59CB51C828A82C82001CC061 /* Products */,
+				B9EEFFCEB9E6D61B04150D7C /* Pods */,
+				D5B89A2714BBE083F74B7325 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +304,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B9EEFFCEB9E6D61B04150D7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */,
+				ED94D0BFD773A8260598DF27 /* Pods-OC-P10-Reciplease.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D5B89A2714BBE083F74B7325 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,6 +329,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59CB51DB28A82C83001CC061 /* Build configuration list for PBXNativeTarget "OC-P10-Reciplease" */;
 			buildPhases = (
+				CA3722F3C3115D4E9F78F5A9 /* [CP] Check Pods Manifest.lock */,
 				59CB51C328A82C82001CC061 /* Sources */,
 				59CB51C428A82C82001CC061 /* Frameworks */,
 				59CB51C528A82C82001CC061 /* Resources */,
@@ -361,6 +387,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA3722F3C3115D4E9F78F5A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OC-P10-Reciplease-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59CB51C328A82C82001CC061 /* Sources */ = {
@@ -530,6 +581,7 @@
 		};
 		59CB51DC28A82C83001CC061 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -558,6 +610,7 @@
 		};
 		59CB51DD28A82C83001CC061 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED94D0BFD773A8260598DF27 /* Pods-OC-P10-Reciplease.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

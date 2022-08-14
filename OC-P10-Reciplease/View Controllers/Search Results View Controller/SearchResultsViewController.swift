@@ -38,7 +38,6 @@ final class SearchResultsViewController: UIViewController {
     
     private func initViewModel(ingredients: String) {
         viewModel.getRecipes(with: ingredients)
-        
         // Reload TableView closure
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
