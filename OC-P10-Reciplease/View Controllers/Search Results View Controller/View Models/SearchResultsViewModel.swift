@@ -9,6 +9,8 @@ import UIKit
 
 final class SearchResultsViewModel: NSObject {
     
+    var ingredients: String
+    
     // MARK: - Closures
     var titleText: ((String) -> Void)?
     var backButtonItemTitleUpdater: ((String) -> Void)?
@@ -21,6 +23,10 @@ final class SearchResultsViewModel: NSObject {
         }
     }
     // MARK: - Inputs
+    init(ingredients: String) {
+        self.ingredients = ingredients
+    }
+    
     func viewDidLoad() {
         titleText?("Reciplease")
         backButtonItemTitleUpdater?("Back")
@@ -28,6 +34,18 @@ final class SearchResultsViewModel: NSObject {
     
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
         return recipeCellViewModels[indexPath.row]
+    }
+    
+    private func createCellViewModel(recipe: Recipe) -> RecipeCellViewModel {
+        let label = recipe.label
+        let ingredientsLines = recipe.ingredientLines
+        let image = recipe.image
+        let url = recipe.url
+        let yield = recipe.yield
+        let totalTime = recipe.totalTime
+        let favorites = false
+       
+        return RecipeCellViewModel(label: label, image: image, url: url, yield: yield, ingredientLines: ingredientsLines , totalTime: totalTime, favorites: favorites)
     }
 }
 

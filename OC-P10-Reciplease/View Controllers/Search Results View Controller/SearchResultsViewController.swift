@@ -33,6 +33,18 @@ final class SearchResultsViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
+        initViewModel(ingredients: viewModel.ingredients)
+    }
+    
+    private func initViewModel(ingredients: String) {
+        viewModel.getRecipes(with: ingredients)
+        
+        // Reload TableView closure
+        viewModel.reloadTableView = { [weak self] in
+            DispatchQueue.main.async {
+                self?.resultsTableView.reloadData()
+            }
+        }
     }
 }
 
