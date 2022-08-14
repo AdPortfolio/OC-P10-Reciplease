@@ -15,4 +15,17 @@ final class SearchCoordinator: Coordinator {
     var rootViewController: UIViewController {
         return navigationController
     }
+    
+    override func start() {
+        navigationController.delegate = self
+        showSearchScreen()
+    }
+}
+
+extension SearchCoordinator {
+    private func showSearchScreen() {
+        let searchViewController = SearchViewController()
+        
+        navigationController.pushViewController(searchViewController, animated: true)
+    }
 }

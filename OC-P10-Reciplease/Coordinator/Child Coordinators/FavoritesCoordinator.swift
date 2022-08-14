@@ -15,4 +15,17 @@ final class FavoritesCoordinator: Coordinator {
     var rootViewController: UIViewController {
         return navigationController
     }
+    
+    override func start() {
+        navigationController.delegate = self
+        showFavoritesScreen()
+    }
+}
+
+extension FavoritesCoordinator {
+    private func showFavoritesScreen() {
+        let favoritesViewController = FavoritesViewController()
+        
+        navigationController.pushViewController(favoritesViewController, animated: true)
+    }
 }
