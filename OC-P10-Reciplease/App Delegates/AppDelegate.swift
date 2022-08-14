@@ -12,9 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
     
+    // MARK: -
+    private let appCoordinator = AppCoordinator()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = appCoordinator.rootViewController
         //   window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
         window?.makeKeyAndVisible()
         return true
