@@ -15,6 +15,9 @@
 		59CB51E828A88AC0001CC061 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51E728A88AC0001CC061 /* AppCoordinator.swift */; };
 		59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51EA28A88B15001CC061 /* SearchCoordinator.swift */; };
 		59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51EC28A88B51001CC061 /* FavoritesCoordinator.swift */; };
+		59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51EF28A88DAE001CC061 /* SearchResultsCoordinator.swift */; };
+		59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51F128A88E1E001CC061 /* DetailsCoordinator.swift */; };
+		59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51F328A88E55001CC061 /* DirectionsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		59CB51E728A88AC0001CC061 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		59CB51EA28A88B15001CC061 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		59CB51EC28A88B51001CC061 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		59CB51EF28A88DAE001CC061 /* SearchResultsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCoordinator.swift; sourceTree = "<group>"; };
+		59CB51F128A88E1E001CC061 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		59CB51F328A88E55001CC061 /* DirectionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				59CB51EA28A88B15001CC061 /* SearchCoordinator.swift */,
+				59CB51EF28A88DAE001CC061 /* SearchResultsCoordinator.swift */,
+				59CB51F128A88E1E001CC061 /* DetailsCoordinator.swift */,
+				59CB51F328A88E55001CC061 /* DirectionsCoordinator.swift */,
 				59CB51EC28A88B51001CC061 /* FavoritesCoordinator.swift */,
 			);
 			path = "Child Coordinators";
@@ -191,10 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */,
 				59CB51E828A88AC0001CC061 /* AppCoordinator.swift in Sources */,
+				59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */,
 				59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */,
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
+				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
 			);
