@@ -28,7 +28,8 @@ final class SearchResultsCoordinator: Coordinator {
 extension SearchResultsCoordinator {
     
     private func showSearchResultsScreen() {
-        let viewController = SearchResultsViewController()
+        let viewModel = SearchResultsViewModel()
+        let viewController = SearchResultsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
