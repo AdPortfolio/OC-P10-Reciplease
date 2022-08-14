@@ -24,7 +24,8 @@ final class SearchCoordinator: Coordinator {
 
 extension SearchCoordinator {
     private func showSearchScreen() {
-        let searchViewController = SearchViewController()
+        let viewModel = SearchViewModel()
+        let searchViewController = SearchViewController(viewModel: viewModel)
         
         navigationController.pushViewController(searchViewController, animated: true)
     }

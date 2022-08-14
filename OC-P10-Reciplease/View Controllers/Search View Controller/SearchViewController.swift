@@ -9,6 +9,20 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
+    // MARK: - Properties
+    private var viewModel: SearchViewModel
+    private var searchIngredients: String = ""
+    private var ingredientsArray = [String]()
+    
+    init(viewModel: SearchViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - User Interface Properties
     // Views
     private let containerView = ViewBuilder()
@@ -48,7 +62,7 @@ final class SearchViewController: UIViewController {
         .setNumberOfLines(0)
         .build()
     
-    let ingredientsLabel = LabelBuilder()
+    private let ingredientsLabel = LabelBuilder()
         .setBackgroundColor(with: .systemGray5)
         .setTextAlignment(to: .natural)
         .setAccessibilityLabel(as: "Ingrédients")
@@ -59,13 +73,13 @@ final class SearchViewController: UIViewController {
         .build()
     
     // Text Field
-    let ingredientsTextField = TextFieldBuilder()
+    private let ingredientsTextField = TextFieldBuilder()
         .setPlaceHolderString(placeholderString: "Lemon, Cheese, Sausages...", placeholderForegroundColor: .tertiaryLabel, placeholderFont: .boldSystemFont(ofSize: 17))
         .setFont(textStyle: .headline, scaledFont: .systemFont(ofSize: 17))
         .build()
     
     // Table View
-    let ingredientsTableView = TableViewBuilder()
+    private let ingredientsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
         .registerCell(cellClass: UITableViewCell.self, and: "Cell")
         .build()
@@ -98,16 +112,140 @@ final class SearchViewController: UIViewController {
         .setMaxContentSizeCategory(as: .extraExtraLarge)
         .build()
     
+    // MARK: - View Controller Life Cycle
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ingredientsTableView.reloadData()
+        addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearList), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchRecipe), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ingredientsTableView.dataSource = viewModel
+        ingredientsTableView.delegate = viewModel
+        bind(to: viewModel)
+        viewModel.viewDidLoad()
         setupUI()
+    }
+    
+    // MARK: - Actions Methods
+    @objc private func addIngredient() {
+        guard let textFieldText = ingredientsTextField.text, !textFieldText.isEmpty else {return}
+        viewModel.addIngredient(with: textFieldText)
+        ingredientsTextField.text?.removeAll()
+        ingredientsTableView.reloadData()
+    }
+    
+    @objc private func clearList() {
+        viewModel.clearIngredients()
+        ingredientsTableView.reloadData()
+    }
+    
+    @objc private func searchRecipe() {
+    }
+}
+
+//MARK: - View Model Binding
+extension SearchViewController {
+    private func bind(to: SearchViewModel){
+        viewModel.titleText = { text in
+            self.title = text
+        }
+        
+        viewModel.backButtonItemTitleUpdater = { title in
+            self.navigationItem.backButtonTitle = title
+        }
+        
+        viewModel.fridgeLabelUpdater = { labelText in
+            self.fridgeLabel.text = labelText
+        }
+        
+        viewModel.addButtonUpdater = { title in
+            self.addButton.setTitle(title, for: .normal)
+        }
+        
+        viewModel.clearButtonUpdater = { title in
+            self.clearButton.setTitle(title, for: .normal)
+        }
+        
+        viewModel.searchLabelUpdater = { searchLabelText in
+            self.searchButton.setTitle(searchLabelText, for: .normal)
+        }
+        
+        viewModel.ingredientsArrayUpdater = { ingredientsArray in
+            self.ingredientsArray = ingredientsArray
+        }
+        
+        viewModel.searchIngredientsUpdater = { searchIngredients in
+            self.searchIngredients = searchIngredients
+        }
+        
+        viewModel.ingredientsLabelUpdater = { text in
+            self.ingredientsLabel.text = text
+        }
     }
 }
 
 //MARK: - User Interface Configuration
 extension SearchViewController {
     private func setupUI() {
+       
+        navigationItem.rightBarButtonItem?.tintColor = .label
+        navigationItem.leftBarButtonItem?.tintColor = .label
+        
         let tab = UITabBarItem(title: "Search", image: UIImage(systemName: "fork.knife.circle"), selectedImage: UIImage(systemName: "fork.knife.circle.fill"))
         tabBarItem = tab
+        
+        view.addSubview(containerView)
+        containerView.addSubview(fridgeLabel)
+        containerView.addSubview(ingredientsTextField)
+        containerView.addSubview(addButton)
+        containerView.addSubview(line)
+        
+        view.addSubview(ingredientsLabel)
+        view.addSubview(clearButton)
+        view.addSubview(ingredientsTableView)
+        view.addSubview(searchButton)
+        
+        containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        fridgeLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16).isActive = true
+        fridgeLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        
+        ingredientsTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16).isActive = true
+        ingredientsTextField.topAnchor.constraint(equalTo: fridgeLabel.bottomAnchor, constant: 25).isActive = true
+        
+        addButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor).isActive = true
+        ingredientsTextField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -3).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        line.leadingAnchor.constraint(equalTo: ingredientsTextField.leadingAnchor).isActive = true
+        line.trailingAnchor.constraint(equalTo: ingredientsTextField.trailingAnchor).isActive = true
+        line.topAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor, constant: 5).isActive = true
+        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        ingredientsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        ingredientsLabel.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 16).isActive = true
+        
+        clearButton.centerYAnchor.constraint(equalTo: ingredientsLabel.centerYAnchor).isActive = true
+        clearButton.trailingAnchor.constraint(equalTo: addButton.trailingAnchor).isActive = true
+        clearButton.leadingAnchor.constraint(equalTo: addButton.leadingAnchor).isActive = true
+        
+        ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 16).isActive = true
+        ingredientsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        ingredientsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        ingredientsTableView.bottomAnchor.constraint(equalTo: searchButton.topAnchor).isActive = true
+        
+        searchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        searchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        searchButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        searchButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
 }
