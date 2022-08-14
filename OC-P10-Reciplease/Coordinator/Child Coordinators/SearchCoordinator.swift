@@ -27,6 +27,16 @@ extension SearchCoordinator {
         let viewModel = SearchViewModel()
         let searchViewController = SearchViewController(viewModel: viewModel)
         
+        searchViewController.didSearchResults = { [weak self] ingredients in
+            self?.searchForRecipes(with: ingredients)
+        }
+        
         navigationController.pushViewController(searchViewController, animated: true)
+    }
+    
+    private func searchForRecipes(with ingredients: String) {
+        let searchResultsCoordinator = SearchResultsCoordinator(navigationController: navigationController, ingredients: ingredients)
+        searchResultsCoordinator.parentCoordinator = self
+        pushCoordinator(searchResultsCoordinator)
     }
 }

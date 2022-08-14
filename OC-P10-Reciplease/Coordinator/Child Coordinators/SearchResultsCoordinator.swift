@@ -11,9 +11,11 @@ final class SearchResultsCoordinator: Coordinator {
     
     // MARK: - Properties
     private let navigationController: NavigationController
+    private var ingredients: String
     
-    init(navigationController: NavigationController) {
+    init(navigationController: NavigationController, ingredients: String) {
         self.navigationController = navigationController
+        self.ingredients = ingredients
         super.init()
     }
 }
