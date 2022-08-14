@@ -20,6 +20,9 @@
 		59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51F328A88E55001CC061 /* DirectionsCoordinator.swift */; };
 		59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51F628A890DE001CC061 /* SearchViewController.swift */; };
 		59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51F928A891CD001CC061 /* FavoritesViewController.swift */; };
+		59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */; };
+		59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520028A893C7001CC061 /* DetailsViewController.swift */; };
+		59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520228A893CF001CC061 /* DirectionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		59CB51F328A88E55001CC061 /* DirectionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsCoordinator.swift; sourceTree = "<group>"; };
 		59CB51F628A890DE001CC061 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		59CB51F928A891CD001CC061 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		59CB520028A893C7001CC061 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		59CB520228A893CF001CC061 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,9 @@
 			children = (
 				59CB51CE28A82C82001CC061 /* NavigationController.swift */,
 				59CB51F528A890C5001CC061 /* Search View Controller */,
+				59CB51FB28A8930C001CC061 /* Search Results View Controller */,
+				59CB51FC28A89318001CC061 /* Details View Controller */,
+				59CB51FD28A89321001CC061 /* Directions View Controller */,
 				59CB51F828A8919F001CC061 /* Favorites View Controller */,
 			);
 			path = "View Controllers";
@@ -150,6 +159,30 @@
 				59CB51F928A891CD001CC061 /* FavoritesViewController.swift */,
 			);
 			path = "Favorites View Controller";
+			sourceTree = "<group>";
+		};
+		59CB51FB28A8930C001CC061 /* Search Results View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */,
+			);
+			path = "Search Results View Controller";
+			sourceTree = "<group>";
+		};
+		59CB51FC28A89318001CC061 /* Details View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				59CB520028A893C7001CC061 /* DetailsViewController.swift */,
+			);
+			path = "Details View Controller";
+			sourceTree = "<group>";
+		};
+		59CB51FD28A89321001CC061 /* Directions View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				59CB520228A893CF001CC061 /* DirectionsViewController.swift */,
+			);
+			path = "Directions View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */,
+				59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */,
 				59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */,
 				59CB51E828A88AC0001CC061 /* AppCoordinator.swift in Sources */,
 				59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */,
@@ -232,6 +266,8 @@
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
 				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
+				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
+				59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
