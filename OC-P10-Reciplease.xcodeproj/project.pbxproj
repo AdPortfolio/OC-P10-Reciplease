@@ -34,6 +34,7 @@
 		59CB521928A8A752001CC061 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521828A8A752001CC061 /* FavoritesViewModel.swift */; };
 		59CB521B28A921EA001CC061 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */; };
 		59CB521D28A92286001CC061 /* String+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521C28A92286001CC061 /* String+Trimming.swift */; };
+		59CB522028A93128001CC061 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		59CB521828A8A752001CC061 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		59CB521C28A92286001CC061 /* String+Trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimming.swift"; sourceTree = "<group>"; };
+		59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51F628A890DE001CC061 /* SearchViewController.swift */,
-				59CB521128A89DAE001CC061 /* Search View Model */,
+				59CB521128A89DAE001CC061 /* View Models */,
 			);
 			path = "Search View Controller";
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */,
+				59CB521E28A93105001CC061 /* View Models */,
 			);
 			path = "Search Results View Controller";
 			sourceTree = "<group>";
@@ -224,12 +227,12 @@
 			path = Builders;
 			sourceTree = "<group>";
 		};
-		59CB521128A89DAE001CC061 /* Search View Model */ = {
+		59CB521128A89DAE001CC061 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
 				59CB521228A89DBD001CC061 /* SearchViewModel.swift */,
 			);
-			path = "Search View Model";
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		59CB521428A8A2D2001CC061 /* Extensions */ = {
@@ -246,6 +249,14 @@
 			isa = PBXGroup;
 			children = (
 				59CB521828A8A752001CC061 /* FavoritesViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		59CB521E28A93105001CC061 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -323,6 +334,7 @@
 				59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */,
 				59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */,
 				59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */,
+				59CB522028A93128001CC061 /* SearchResultsViewModel.swift in Sources */,
 				59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */,
 				59CB51E828A88AC0001CC061 /* AppCoordinator.swift in Sources */,
 				59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */,
