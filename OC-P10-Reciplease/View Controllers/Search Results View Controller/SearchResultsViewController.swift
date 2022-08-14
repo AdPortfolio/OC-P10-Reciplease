@@ -12,6 +12,12 @@ final class SearchResultsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: SearchResultsViewModel!
     
+    // MARK: - User Interface Properties
+    private let resultsTableView = TableViewBuilder()
+        .setBackgroundColor(color: .systemGray5)
+        .registerCell(cellClass: UITableViewCell.self, and: "Cell")
+        .build()
+    
     // MARK: - View Controller Life Cycle
     init(viewModel: SearchResultsViewModel) {
         self.viewModel = viewModel
@@ -46,8 +52,16 @@ extension SearchResultsViewController {
 // MARK: User Interface Setup
 extension SearchResultsViewController {
     private func setupUI() {
+        view.addSubview(resultsTableView)
         view.backgroundColor = .brown
         navigationItem.leftBarButtonItem?.tintColor = .label
+        resultsTableView.dataSource = viewModel
+        resultsTableView.delegate = viewModel
+        
+        resultsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        resultsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        resultsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        resultsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
 
