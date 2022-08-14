@@ -35,6 +35,8 @@
 		59CB521B28A921EA001CC061 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */; };
 		59CB521D28A92286001CC061 /* String+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521C28A92286001CC061 /* String+Trimming.swift */; };
 		59CB522028A93128001CC061 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */; };
+		59CB522428A939AC001CC061 /* RecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */; };
+		59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB522528A939C5001CC061 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		59CB521C28A92286001CC061 /* String+Trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimming.swift"; sourceTree = "<group>"; };
 		59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
+		59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModel.swift; sourceTree = "<group>"; };
+		59CB522528A939C5001CC061 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,8 +261,26 @@
 			isa = PBXGroup;
 			children = (
 				59CB521F28A93128001CC061 /* SearchResultsViewModel.swift */,
+				59CB522128A93896001CC061 /* Cell */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		59CB522128A93896001CC061 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				59CB522528A939C5001CC061 /* CustomTableViewCell.swift */,
+				59CB522228A938E9001CC061 /* Cell View Models */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		59CB522228A938E9001CC061 /* Cell View Models */ = {
+			isa = PBXGroup;
+			children = (
+				59CB522328A939AC001CC061 /* RecipeCellViewModel.swift */,
+			);
+			path = "Cell View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +363,8 @@
 				59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */,
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
+				59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */,
+				59CB522428A939AC001CC061 /* RecipeCellViewModel.swift in Sources */,
 				59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */,
 				59CB520828A898DE001CC061 /* StackViewBuilder.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,

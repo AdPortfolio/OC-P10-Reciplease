@@ -15,7 +15,7 @@ final class SearchResultsViewController: UIViewController {
     // MARK: - User Interface Properties
     private let resultsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
-        .registerCell(cellClass: UITableViewCell.self, and: "Cell")
+        .registerCell(cellClass: CustomTableViewCell.self, and: CustomTableViewCell.identifier)
         .build()
     
     // MARK: - View Controller Life Cycle
