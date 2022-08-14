@@ -14,7 +14,8 @@ final class TableViewBuilder {
     private var identifier = String()
     private var sectionIndexColor = UIColor()
     private var accessibilityLabel: String?
- 
+    private var refreshControl: UIRefreshControl?
+    
     func setBackgroundColor(color: UIColor) -> TableViewBuilder {
         self.backgroundColor = color
         return self
@@ -35,6 +36,15 @@ final class TableViewBuilder {
         self.accessibilityLabel = label
         return self
     }
+    
+    func addRefreshControl(_ bool: Bool) -> TableViewBuilder {
+        if bool == true {
+            self.refreshControl = UIRefreshControl()
+        } else {
+            self.refreshControl = nil
+        }
+        return self
+    }
  
     func build() -> UITableView {
         let table = UITableView()
@@ -43,6 +53,7 @@ final class TableViewBuilder {
         table.refreshControl = UIRefreshControl()
         table.sectionIndexColor = sectionIndexColor
         table.accessibilityLabel = accessibilityLabel
+        table.refreshControl = refreshControl
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }
