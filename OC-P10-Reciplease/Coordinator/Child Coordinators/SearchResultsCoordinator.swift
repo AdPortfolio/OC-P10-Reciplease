@@ -28,7 +28,8 @@ final class SearchResultsCoordinator: Coordinator {
 extension SearchResultsCoordinator {
     
     private func showSearchResultsScreen() {
-        let viewModel = SearchResultsViewModel(ingredients: ingredients)
+        let network = RecipeNetwork()
+        let viewModel = SearchResultsViewModel(network: network, ingredients: ingredients)
         let viewController = SearchResultsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

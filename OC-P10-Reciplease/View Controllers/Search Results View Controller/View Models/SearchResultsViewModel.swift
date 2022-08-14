@@ -8,32 +8,54 @@
 import UIKit
 
 final class SearchResultsViewModel: NSObject {
-    
+    var network: RecipeNetworkType!
     var ingredients: String
     
     // MARK: - Closures
     var titleText: ((String) -> Void)?
     var backButtonItemTitleUpdater: ((String) -> Void)?
     var reloadTableView: (() -> Void)?
-    var didGetDetails: ((RecipeCellViewModel) -> Void)?
+    var ingredientsUpdater: ((String) -> Void)?
     
+    var didGetDetails: ((RecipeCellViewModel) -> Void)?
     var recipeCellViewModels = [RecipeCellViewModel]() {
         didSet {
             reloadTableView?()
         }
     }
     // MARK: - Inputs
-    init(ingredients: String) {
+    init(network: RecipeNetworkType, ingredients: String) {
+        self.network = network
         self.ingredients = ingredients
     }
     
     func viewDidLoad() {
         titleText?("Reciplease")
         backButtonItemTitleUpdater?("Back")
+        ingredientsUpdater?(ingredients)
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
         return recipeCellViewModels[indexPath.row]
+    }
+    
+    func getRecipes(with ingredients: String) {
+        network.fetchRecipes(with: ingredients) { result in
+            switch result {
+            case .success(let response):
+                guard let safeResponse = response else {return}
+                self.fetchData(recipes: safeResponse)
+            case .failure(let error): print(error)
+            }
+        }
+    }
+    
+    private func fetchData(recipes: RecipesResponse) {
+        var recipeViewModelsList = [RecipeCellViewModel]()
+        for recipe in recipes.hits {
+            recipeViewModelsList.append(createCellViewModel(recipe: recipe.recipe))
+        }
+        recipeCellViewModels = recipeViewModelsList
     }
     
     private func createCellViewModel(recipe: Recipe) -> RecipeCellViewModel {
