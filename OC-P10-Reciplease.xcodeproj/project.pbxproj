@@ -23,6 +23,7 @@
 		59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */; };
 		59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520028A893C7001CC061 /* DetailsViewController.swift */; };
 		59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520228A893CF001CC061 /* DirectionsViewController.swift */; };
+		59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520528A89876001CC061 /* ViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		59CB51FE28A893A6001CC061 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		59CB520028A893C7001CC061 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		59CB520228A893CF001CC061 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		59CB520528A89876001CC061 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				59CB51DE28A85DF1001CC061 /* App Delegates */,
 				59CB51E328A889F1001CC061 /* Coordinator */,
 				59CB51EE28A88BAC001CC061 /* View Controllers */,
+				59CB520428A8985C001CC061 /* Builders */,
 				59CB51E228A86AA9001CC061 /* Supporting Files */,
 			);
 			path = "OC-P10-Reciplease";
@@ -185,6 +188,14 @@
 			path = "Directions View Controller";
 			sourceTree = "<group>";
 		};
+		59CB520428A8985C001CC061 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				59CB520528A89876001CC061 /* ViewBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +274,7 @@
 				59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */,
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
+				59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
 				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
