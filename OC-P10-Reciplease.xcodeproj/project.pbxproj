@@ -24,6 +24,11 @@
 		59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520028A893C7001CC061 /* DetailsViewController.swift */; };
 		59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520228A893CF001CC061 /* DirectionsViewController.swift */; };
 		59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520528A89876001CC061 /* ViewBuilder.swift */; };
+		59CB520828A898DE001CC061 /* StackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520728A898DE001CC061 /* StackViewBuilder.swift */; };
+		59CB520A28A89931001CC061 /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520928A89931001CC061 /* LabelBuilder.swift */; };
+		59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520B28A89990001CC061 /* TextFieldBuilder.swift */; };
+		59CB520E28A899D2001CC061 /* TableViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520D28A899D2001CC061 /* TableViewBuilder.swift */; };
+		59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB520F28A899E9001CC061 /* ButtonBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		59CB520028A893C7001CC061 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		59CB520228A893CF001CC061 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 		59CB520528A89876001CC061 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		59CB520728A898DE001CC061 /* StackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBuilder.swift; sourceTree = "<group>"; };
+		59CB520928A89931001CC061 /* LabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBuilder.swift; sourceTree = "<group>"; };
+		59CB520B28A89990001CC061 /* TextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBuilder.swift; sourceTree = "<group>"; };
+		59CB520D28A899D2001CC061 /* TableViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBuilder.swift; sourceTree = "<group>"; };
+		59CB520F28A899E9001CC061 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				59CB520528A89876001CC061 /* ViewBuilder.swift */,
+				59CB520728A898DE001CC061 /* StackViewBuilder.swift */,
+				59CB520928A89931001CC061 /* LabelBuilder.swift */,
+				59CB520B28A89990001CC061 /* TextFieldBuilder.swift */,
+				59CB520D28A899D2001CC061 /* TableViewBuilder.swift */,
+				59CB520F28A899E9001CC061 /* ButtonBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -267,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */,
+				59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */,
 				59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */,
 				59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */,
 				59CB51E828A88AC0001CC061 /* AppCoordinator.swift in Sources */,
@@ -275,10 +291,14 @@
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
 				59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */,
+				59CB520828A898DE001CC061 /* StackViewBuilder.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
+				59CB520E28A899D2001CC061 /* TableViewBuilder.swift in Sources */,
 				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
+				59CB520A28A89931001CC061 /* LabelBuilder.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
 				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
+				59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */,
 				59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
 			);
