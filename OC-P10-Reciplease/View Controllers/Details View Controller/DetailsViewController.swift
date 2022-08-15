@@ -125,6 +125,32 @@ final class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
+        let recipeFetch: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
+        recipeFetch.sortDescriptors = [sortByName]
+        do {
+            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let results = try managedContext.fetch(recipeFetch)
+            
+            
+            guard !results.isEmpty else {
+                navigationItem.rightBarButtonItem = unfavoredButton
+                return
+            }
+            for result in results {
+                if result.label == viewModel.recipeCellViewModel.label  {
+                    print("recipe exists")
+                    
+                    navigationItem.rightBarButtonItem = favoredButton
+                    favoredButton.accessibilityLabel = "Inscrit dans les Favorites"
+                    return
+                } else {
+                    navigationItem.rightBarButtonItem = unfavoredButton
+                }
+            }
+        } catch {
+            print("failed in finding context")
+        }
     }
     
     override func viewDidLoad() {
