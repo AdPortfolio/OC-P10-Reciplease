@@ -342,9 +342,9 @@
 		59CB523128A996BC001CC061 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				59CB523D28A9ABBD001CC061 /* Recipe+CoreDataClass.swift */,
-				59CB523E28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift */,
 				59CB523928A99AA7001CC061 /* CoreDataStack.swift */,
+				59CB523E28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift */,
+				59CB523D28A9ABBD001CC061 /* Recipe+CoreDataClass.swift */,
 				59CB523228A996CF001CC061 /* Recipes.xcdatamodeld */,
 			);
 			path = CoreData;

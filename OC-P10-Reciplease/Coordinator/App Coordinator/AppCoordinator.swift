@@ -11,12 +11,13 @@ final class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     private let tabBarController = UITabBarController()
+    
     var rootViewController: UIViewController {
         return tabBarController
     }
     
     let searchCoordinator = SearchCoordinator()
-    let favoritesCoodinator = FavoritesCoordinator()
+    let favoritesCoodinator = FavoritesCoordinator(recipes: [])
     
     override init() {
         super.init()

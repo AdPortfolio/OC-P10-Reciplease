@@ -178,11 +178,9 @@ final class DetailsViewController: UIViewController {
                 if result.label == viewModel.recipeCellViewModel.label  {
                     print("recipe exists")
                     navigationItem.rightBarButtonItem = favoredButton
-                    
                     return
                 } else {
                     print("recipe does not exist yet")
-                    
                 }
             }
         } catch {

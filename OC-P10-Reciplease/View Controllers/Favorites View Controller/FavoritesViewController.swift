@@ -6,15 +6,22 @@
 //
 
 import UIKit
+import CoreData
 
 final class FavoritesViewController: UIViewController {
     
     // MARK: - Properties
     private var viewModel: FavoritesViewModel
     
+    // MARK: - Closures
+    var didGetDetails: ((RecipeCellViewModel) -> Void)?
+    
+    // MARK: - User Interface Properties
+    lazy var deleteAllRecipesButton = UIBarButtonItem(image: UIImage(systemName: "xmark.bin"), style: .done, target: self, action: #selector(clearDatabase))
+    
     private let resultsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
-        .registerCell(cellClass: UITableViewCell.self, and: "CellFav")
+        .registerCell(cellClass: CustomTableViewCell.self, and: CustomTableViewCell.identifier)
         .build()
     
     // MARK: - View Controller Life Cycle
@@ -25,6 +32,7 @@ final class FavoritesViewController: UIViewController {
         resultsTableView.delegate = viewModel
         resultsTableView.dataSource = viewModel
         
+        initViewModel()
         setupUI()
     }
     
@@ -37,6 +45,52 @@ final class FavoritesViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
+    
+    deinit {
+        print("Fav VC deinit")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initViewModel()
+    }
+    
+    @objc func initViewModel() {
+        resultsTableView.refreshControl?.endRefreshing()
+        viewModel.getRecipes()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            self.resultsTableView.refreshControl?.endRefreshing()
+              self.resultsTableView.reloadData()
+        }
+    }
+    
+    @objc func clearDatabase() {
+        if viewModel.recipes?.isEmpty == true {
+            
+        } else {
+            let alert = UIAlertController(title: "Delete Favorites", message: "Are you sure to delete all your Favorites?", preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                self.viewModel.clearDataBase()
+                self.initViewModel()
+            }
+            deleteAction.accessibilityLabel = "Oui, Supprimer"
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            cancel.accessibilityLabel = "Non, ne pas Supprimer"
+            
+            alert.addAction(deleteAction)
+            alert.addAction(cancel)
+            present(alert, animated: true)
+        }
+        
+        viewModel.reloadTableView = { [weak self] in
+            DispatchQueue.main.async {
+                self?.resultsTableView.reloadData()
+            }
+        }
+    }
 }
 
 //MARK: - View Model Binding
@@ -44,6 +98,10 @@ extension FavoritesViewController {
     private func bind(to: FavoritesViewModel){
         viewModel.titleText = { text in
             self.title = text
+        }
+        
+        viewModel.didGetDetails = { recipeVM in
+            self.didGetDetails?(recipeVM)
         }
     }
 }
