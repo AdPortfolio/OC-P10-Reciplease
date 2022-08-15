@@ -163,6 +163,112 @@ final class DetailsViewController: UIViewController {
     @objc private func getDirections() {
         didGetDirection?()
     }
+    
+    @objc private func addToFavorites(){
+        
+        viewModel.recipes = recipes
+        
+        let recipeFetch: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
+        recipeFetch.sortDescriptors = [sortByName]
+        do {
+            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let results = try managedContext.fetch(recipeFetch)
+            for result in results {
+                if result.label == viewModel.recipeCellViewModel.label  {
+                    print("recipe exists")
+                    navigationItem.rightBarButtonItem = favoredButton
+                    
+                    return
+                } else {
+                    print("recipe does not exist yet")
+                    
+                }
+            }
+        } catch {
+            print("failed in finding context")
+        }
+        
+        navigationItem.rightBarButtonItem = favoredButton
+        viewModel.recipeCellViewModel.favorites = true
+        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        let newRecipe = Recipe(context: managedContext)
+        newRecipe.favorites = true
+        
+        newRecipe.setValue(viewModel.recipeCellViewModel.label, forKey: #keyPath(Recipe.label))
+        newRecipe.setValue(viewModel.recipeCellViewModel.image, forKey: #keyPath(Recipe.image))
+        newRecipe.setValue(viewModel.recipeCellViewModel.ingredientLines, forKey: #keyPath(Recipe.ingredientLines))
+        newRecipe.setValue(viewModel.recipeCellViewModel.totalTime, forKey: #keyPath(Recipe.totalTime))
+        newRecipe.setValue(viewModel.recipeCellViewModel.url, forKey: #keyPath(Recipe.url))
+        newRecipe.setValue(viewModel.recipeCellViewModel.yield, forKey: #keyPath(Recipe.yield))
+        newRecipe.setValue(viewModel.recipeCellViewModel.favorites, forKey: #keyPath(Recipe.favorites))
+        
+        viewModel.recipes.insert(newRecipe, at: 0)
+        AppDelegate.sharedAppDelegate.coreDataStack.saveContext() // Save changes in CoreData
+        
+        var info = ["recipes":recipes]
+        info["recipes"]?.append(contentsOf: recipes)
+        NotificationCenter.default.post(name: Notification.Name("Favorites"), object: nil, userInfo: info)
+        showAddedView()
+    }
+    
+    @objc private func removeFromFavorites() {
+        showRemovedView()
+        navigationItem.rightBarButtonItem = unfavoredButton
+        
+        let recipeFetch: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
+        recipeFetch.sortDescriptors = [sortByName]
+        do {
+            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let results = try managedContext.fetch(recipeFetch)
+            viewModel.recipes = results
+            for (_, result) in results.enumerated() {
+                if result.label == viewModel.recipeCellViewModel.label  {
+                    print("recipe exists")
+                    navigationItem.rightBarButtonItem = unfavoredButton
+                    managedContext.delete(result)
+                    
+                    viewModel.recipes = results
+                    
+                    var info = ["recipes":recipes]
+                    info["recipes"]?.append(contentsOf: recipes)
+                    NotificationCenter.default.post(name: Notification.Name("Favorites"), object: nil, userInfo: info)
+                    unfavoredButton.accessibilityLabel = "Inexistant dans les Favorites"
+                    return
+                } else {
+                    print("recipe does not exist yet")
+                }
+            }
+        } catch {
+            print("failed in finding context")
+        }
+    }
+    
+    private func showAddedView() {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold, scale: .default)
+        isFavoredSymbol.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: largeConfig)
+        isFavoredSymbol.tintColor = .systemGreen
+        
+        isFavoredLabel.text = "Recipe saved to Favorites!"
+        informationView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.informationView.isHidden = true
+        }
+    }
+    
+    private func showRemovedView() {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold, scale: .default)
+        isFavoredSymbol.image = UIImage(systemName: "x.circle.fill", withConfiguration: largeConfig)
+        isFavoredSymbol.tintColor = .systemRed
+        
+        isFavoredLabel.text = "Recipe removed from Favorites!"
+        informationView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+           self.informationView.isHidden = true
+        }
+    }
 }
 
 //MARK: - View Model Binding
