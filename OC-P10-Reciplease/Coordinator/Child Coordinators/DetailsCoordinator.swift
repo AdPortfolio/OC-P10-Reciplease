@@ -30,6 +30,17 @@ extension DetailsCoordinator {
     private func showDetailsScreen() {
         let viewModel = DetailsViewModel(recipeCellViewModel: recipeCellViewModel)
         let viewController = DetailsViewController(viewModel: viewModel)
+        
+        viewController.didGetDirection = { [weak self] in
+            self?.getDirections()
+        }
+        
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    private func getDirections() {
+        let directionsCoordinator = DirectionsCoordinator(navigationController: navigationController, recipeCellViewModel: recipeCellViewModel)
+        directionsCoordinator.parentCoordinator = self
+        pushCoordinator(directionsCoordinator)
     }
 }

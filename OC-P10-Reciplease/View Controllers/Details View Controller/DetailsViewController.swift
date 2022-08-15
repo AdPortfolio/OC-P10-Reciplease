@@ -11,6 +11,9 @@ final class DetailsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: DetailsViewModel!
     
+    // MARK: - Closures
+    var didGetDirection: (() -> Void)?
+    
     // MARK: - User Interface Properties
     private let mealImageView = ImageViewBuilder()
         .setContentMode(contentMode: .scaleAspectFill)
@@ -114,11 +117,20 @@ final class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         bind(to: viewModel)
         viewModel.viewDidLoad()
+    }
+    
+    @objc private func getDirections() {
+        didGetDirection?()
     }
 }
 
