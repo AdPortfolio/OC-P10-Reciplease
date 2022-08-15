@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import CoreData
 
 final class DetailsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: DetailsViewModel!
     
+    private var recipes = [Recipe]()
     // MARK: - Closures
     var didGetDirection: (() -> Void)?
+    
+    private lazy var unfavoredButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .done, target: self, action: #selector(addToFavorites))
+    private lazy var favoredButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .done, target: self, action:  #selector(removeFromFavorites))
     
     // MARK: - User Interface Properties
     private let mealImageView = ImageViewBuilder()
@@ -194,6 +199,8 @@ extension DetailsViewController {
 extension DetailsViewController {
     private func setupUI() {
         view.backgroundColor = .systemGray5
+        unfavoredButton.tintColor = .label
+        favoredButton.tintColor = .label
         
         view.addSubview(mealImageView)
         mealImageView.addSubview(mealNameLabel)
