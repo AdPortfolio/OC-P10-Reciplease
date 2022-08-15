@@ -48,6 +48,7 @@
 		59CB524328A9B67F001CC061 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524228A9B67F001CC061 /* DetailsViewModel.swift */; };
 		59CB524528A9B6B6001CC061 /* UIColor+Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */; };
 		59CB524728A9B6F2001CC061 /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */; };
+		59CB524A28A9CE02001CC061 /* DirectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */; };
 		806D9E13D204D4D55548C0F7 /* libPods-OC-P10-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		59CB524228A9B67F001CC061 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Customs.swift"; sourceTree = "<group>"; };
 		59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
+		59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewModel.swift; sourceTree = "<group>"; };
 		64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		ED94D0BFD773A8260598DF27 /* Pods-OC-P10-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB520228A893CF001CC061 /* DirectionsViewController.swift */,
+				59CB524828A9CDDF001CC061 /* View Models */,
 			);
 			path = "Directions View Controller";
 			sourceTree = "<group>";
@@ -351,6 +354,14 @@
 			isa = PBXGroup;
 			children = (
 				59CB524228A9B67F001CC061 /* DetailsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		59CB524828A9CDDF001CC061 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -480,6 +491,7 @@
 				59CB51F428A88E55001CC061 /* DirectionsCoordinator.swift in Sources */,
 				59CB51EB28A88B15001CC061 /* SearchCoordinator.swift in Sources */,
 				59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */,
+				59CB524A28A9CE02001CC061 /* DirectionsViewModel.swift in Sources */,
 				59CB523028A9967C001CC061 /* RecipesResponse.swift in Sources */,
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
 				59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */,
