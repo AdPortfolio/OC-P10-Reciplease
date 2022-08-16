@@ -58,6 +58,11 @@ extension DetailsCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    private func getNewRecipe(recipes: [Recipe]) {
+        let favoritesCoordinator = FavoritesCoordinator(recipes: recipes)
+        pushCoordinator(favoritesCoordinator)
+    }
+    
     private func getDirections() {
         let directionsCoordinator = DirectionsCoordinator(navigationController: navigationController, recipeCellViewModel: recipeCellViewModel)
         directionsCoordinator.parentCoordinator = self
