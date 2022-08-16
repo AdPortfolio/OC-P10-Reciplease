@@ -19,6 +19,7 @@ final class StackViewBuilder {
     }
     
     func setAxis(axis: NSLayoutConstraint.Axis) -> StackViewBuilder {
+        self.axis = axis
        return self
     }
     
