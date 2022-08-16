@@ -52,7 +52,6 @@
 		59CB523A28A99AA7001CC061 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523928A99AA7001CC061 /* CoreDataStack.swift */; };
 		59CB523C28A99B77001CC061 /* RecipeNetworkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523B28A99B77001CC061 /* RecipeNetworkType.swift */; };
 		59CB524328A9B67F001CC061 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524228A9B67F001CC061 /* DetailsViewModel.swift */; };
-		59CB524528A9B6B6001CC061 /* UIColor+Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */; };
 		59CB524728A9B6F2001CC061 /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */; };
 		59CB524A28A9CE02001CC061 /* DirectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */; };
 		806D9E13D204D4D55548C0F7 /* libPods-OC-P10-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */; };
@@ -107,7 +106,6 @@
 		59CB523928A99AA7001CC061 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		59CB523B28A99B77001CC061 /* RecipeNetworkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNetworkType.swift; sourceTree = "<group>"; };
 		59CB524228A9B67F001CC061 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
-		59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Customs.swift"; sourceTree = "<group>"; };
 		59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 		59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewModel.swift; sourceTree = "<group>"; };
 		64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 				59CB521528A8A2E3001CC061 /* String+Capitals.swift */,
 				59CB521C28A92286001CC061 /* String+Trimming.swift */,
 				59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */,
-				59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */,
 				59729B0E28AAD69500D3F642 /* UIViewController+EndEditing.swift */,
 			);
 			path = Extensions;
@@ -508,7 +505,6 @@
 				59CB523A28A99AA7001CC061 /* CoreDataStack.swift in Sources */,
 				59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */,
 				59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */,
-				59CB524528A9B6B6001CC061 /* UIColor+Customs.swift in Sources */,
 				59CB51FF28A893A6001CC061 /* SearchResultsViewController.swift in Sources */,
 				59CB522028A93128001CC061 /* SearchResultsViewModel.swift in Sources */,
 				59CB51F028A88DAE001CC061 /* SearchResultsCoordinator.swift in Sources */,

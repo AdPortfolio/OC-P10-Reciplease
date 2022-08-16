@@ -33,7 +33,7 @@ final class CameraViewController: UIViewController {
     private let pickerView: UIPickerView = {
         let picker = UIPickerView()
         picker.isHidden = true
-        picker.backgroundColor = .customGray
+        picker.backgroundColor = .systemGray5
         picker.translatesAutoresizingMaskIntoConstraints = false
         return picker
     }()

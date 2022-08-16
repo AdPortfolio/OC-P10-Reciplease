@@ -101,7 +101,7 @@ final class DetailsViewController: UIViewController {
         layer.startPoint = CGPoint(x: 1, y: 0)
         layer.endPoint = CGPoint(x: 0, y: 1.0)
         layer.colors = [
-            UIColor.clear.cgColor, UIColor.customGray.cgColor]
+            UIColor.clear.cgColor, UIColor(red: 0.20, green: 0.53, blue: 0.30, alpha: 1.00)]
         return layer
     }()
     
