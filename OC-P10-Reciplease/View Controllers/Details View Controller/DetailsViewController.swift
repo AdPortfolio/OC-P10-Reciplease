@@ -188,9 +188,7 @@ final class DetailsViewController: UIViewController {
                     print("recipe exists")
                     navigationItem.rightBarButtonItem = favoredButton
                     return
-                } else {
-                    print("recipe does not exist yet")
-                }
+                } 
             }
         } catch {
             print("failed in finding context")

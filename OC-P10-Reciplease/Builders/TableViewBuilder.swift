@@ -50,7 +50,6 @@ final class TableViewBuilder {
         let table = UITableView()
         table.backgroundColor = backgroundColor
         table.register(cellClass, forCellReuseIdentifier: identifier)
-        table.refreshControl = UIRefreshControl()
         table.sectionIndexColor = sectionIndexColor
         table.accessibilityLabel = accessibilityLabel
         table.refreshControl = refreshControl
