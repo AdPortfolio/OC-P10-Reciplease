@@ -7,10 +7,16 @@
 
 import UIKit
 
+import UIKit
+
 final class SearchViewModel: NSObject {
     
+    private var network: ProductsNetworkType!
     var componentsArray: [String] = []
 
+    init(network: ProductsNetworkType) {
+        self.network = network
+    }
     // MARK: - Properties
     var ingredientsArray = [String]()
     var searchIngredients: String = ""
@@ -69,6 +75,46 @@ final class SearchViewModel: NSObject {
             print("already exists")
         }
     }
+    
+    func updateComponent(component: String) {
+        var temporary = component
+        temporary.capitalizeFirstLetter()
+        addIngredient(with: createSearchIngredientsFrom(text: &temporary))
+        ingredientsArrayUpdater?(ingredientsArray)
+    }
+    
+    private func createSearchIngredientsFrom(text: inout String) -> String {
+        text = text.replacingOccurrences(of: "-", with: " ")
+        while let rangeToReplace = text.range(of: "\n") {
+            text.replaceSubrange(rangeToReplace, with: ",")
+        }
+        text = text.trim()
+        return text
+    }
+   
+    func fetchProducts(with code: String) {
+        network.fetchProducts(with: code) { result in
+            switch result {
+            case .success(let response):
+                
+                guard let safeResponse = response else {return}
+                self.componentsArray = safeResponse.products[0].categoriesTags
+                
+                var newArray: [String] = []
+                for component in self.componentsArray.enumerated() {
+                    var element = component.element
+                    element.removeFirst(3)
+                    newArray.append(element)
+                }
+                self.componentsArray = newArray
+                
+                self.didShowHidePickerView?()
+                self.didPickerViewReloadAllComponents?()
+            case .failure(let error):
+                self.didPresentAlert?(error)
+            }
+        }
+    }
 }
 
 extension SearchViewModel: UITableViewDataSource {
@@ -121,9 +167,5 @@ extension SearchViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .secondaryLabel
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  self.delegate?.selectedCell(row: indexPath.row)
     }
 }
