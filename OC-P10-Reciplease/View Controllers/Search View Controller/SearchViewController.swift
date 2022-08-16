@@ -8,16 +8,24 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
-    
+
     // MARK: - Properties
     private var viewModel: SearchViewModel
-    
     private var searchIngredients: String = ""
     private var ingredientsArray = [String]()
+
+    var product: [String] = []
     private  let vegetables = ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥬","🥒","🌶","🫑","🌽","🥕","🫒","🧄","🧅","🥔","🍠","🥩","🍗","🥚","🧀"]
-    
     // MARK: - Closures
     var didSearchResults: ((String) -> Void)?
+    var didLaunchCamera: (() -> Void)?
+    var didFinish: (() -> Void)?
+    
+    private lazy var cameraButton = UIBarButtonItem(image: UIImage(systemName: "camera.metering.none"), style: .plain , target: self, action: #selector(launchCamera))
+    
+    @objc private func launchCamera() {
+        didLaunchCamera?()
+    }
     
     // MARK: - User Interface Properties
     // Views
@@ -58,7 +66,7 @@ final class SearchViewController: UIViewController {
         .setNumberOfLines(0)
         .build()
     
-    private let ingredientsLabel = LabelBuilder()
+    let ingredientsLabel = LabelBuilder()
         .setBackgroundColor(with: .systemGray5)
         .setTextAlignment(to: .natural)
         .setAccessibilityLabel(as: "Ingrédients")
@@ -69,15 +77,14 @@ final class SearchViewController: UIViewController {
         .build()
     
     // Text Field
-    private let ingredientsTextField = TextFieldBuilder()
+    let ingredientsTextField = TextFieldBuilder()
         .setPlaceHolderString(placeholderString: "Lemon, Cheese, Sausages...", placeholderForegroundColor: .tertiaryLabel, placeholderFont: .boldSystemFont(ofSize: 17))
         .setFont(textStyle: .headline, scaledFont: .systemFont(ofSize: 17))
         .build()
     
     // Table View
-    private let ingredientsTableView = TableViewBuilder()
+    let ingredientsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
-        .addRefreshControl(false)
         .registerCell(cellClass: UITableViewCell.self, and: "Cell")
         .build()
     
@@ -134,6 +141,16 @@ final class SearchViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("did disappear")
+        didFinish?()
+    }
+    
+    deinit {
+        print("Search deinit")
     }
     
     // MARK: - Actions Methods
@@ -213,9 +230,12 @@ extension SearchViewController {
 //MARK: - User Interface Configuration
 extension SearchViewController {
     private func setupUI() {
-       
+        hideKeyboardWhenTappedAround()
+        navigationItem.rightBarButtonItem = cameraButton
         navigationItem.rightBarButtonItem?.tintColor = .label
         navigationItem.leftBarButtonItem?.tintColor = .label
+        
+        cameraButton.accessibilityLabel = "Scanner les ingrédients"
         
         let tab = UITabBarItem(title: "Search", image: UIImage(systemName: "fork.knife.circle"), selectedImage: UIImage(systemName: "fork.knife.circle.fill"))
         tabBarItem = tab
