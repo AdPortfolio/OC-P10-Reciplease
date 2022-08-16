@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59729B0728AAD4A900D3F642 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0628AAD4A900D3F642 /* CameraViewController.swift */; };
+		59729B0928AAD5E000D3F642 /* ProductsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0828AAD5E000D3F642 /* ProductsNetwork.swift */; };
+		59729B0B28AAD5FC00D3F642 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0A28AAD5FC00D3F642 /* ProductsResponse.swift */; };
+		59729B0D28AAD64900D3F642 /* ProductsNetworkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0C28AAD64900D3F642 /* ProductsNetworkType.swift */; };
+		59729B0F28AAD69500D3F642 /* UIViewController+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0E28AAD69500D3F642 /* UIViewController+EndEditing.swift */; };
+		59729B1228AAD6CD00D3F642 /* QuickActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B1128AAD6CD00D3F642 /* QuickActionHandler.swift */; };
+		59729B1528AB199200D3F642 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B1328AB199100D3F642 /* Recipe+CoreDataProperties.swift */; };
+		59729B1628AB199200D3F642 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B1428AB199200D3F642 /* Recipe+CoreDataClass.swift */; };
 		59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51CA28A82C82001CC061 /* AppDelegate.swift */; };
 		59CB51CF28A82C82001CC061 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB51CE28A82C82001CC061 /* NavigationController.swift */; };
 		59CB51D428A82C83001CC061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59CB51D328A82C83001CC061 /* Assets.xcassets */; };
@@ -43,8 +51,6 @@
 		59CB523428A996CF001CC061 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523228A996CF001CC061 /* Recipes.xcdatamodeld */; };
 		59CB523A28A99AA7001CC061 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523928A99AA7001CC061 /* CoreDataStack.swift */; };
 		59CB523C28A99B77001CC061 /* RecipeNetworkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523B28A99B77001CC061 /* RecipeNetworkType.swift */; };
-		59CB523F28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523E28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift */; };
-		59CB524028A9ABBD001CC061 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB523D28A9ABBD001CC061 /* Recipe+CoreDataClass.swift */; };
 		59CB524328A9B67F001CC061 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524228A9B67F001CC061 /* DetailsViewModel.swift */; };
 		59CB524528A9B6B6001CC061 /* UIColor+Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */; };
 		59CB524728A9B6F2001CC061 /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */; };
@@ -54,6 +60,14 @@
 
 /* Begin PBXFileReference section */
 		026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC-P10-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59729B0628AAD4A900D3F642 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		59729B0828AAD5E000D3F642 /* ProductsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsNetwork.swift; sourceTree = "<group>"; };
+		59729B0A28AAD5FC00D3F642 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
+		59729B0C28AAD64900D3F642 /* ProductsNetworkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsNetworkType.swift; sourceTree = "<group>"; };
+		59729B0E28AAD69500D3F642 /* UIViewController+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EndEditing.swift"; sourceTree = "<group>"; };
+		59729B1128AAD6CD00D3F642 /* QuickActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionHandler.swift; sourceTree = "<group>"; };
+		59729B1328AB199100D3F642 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		59729B1428AB199200D3F642 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		59CB51C728A82C82001CC061 /* OC-P10-Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-P10-Reciplease.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CB51CA28A82C82001CC061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59CB51CE28A82C82001CC061 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -92,8 +106,6 @@
 		59CB523328A996CF001CC061 /* Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipes.xcdatamodel; sourceTree = "<group>"; };
 		59CB523928A99AA7001CC061 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		59CB523B28A99B77001CC061 /* RecipeNetworkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNetworkType.swift; sourceTree = "<group>"; };
-		59CB523D28A9ABBD001CC061 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		59CB523E28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		59CB524228A9B67F001CC061 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Customs.swift"; sourceTree = "<group>"; };
 		59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
@@ -114,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59729B1028AAD6BC00D3F642 /* QuickActionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				59729B1128AAD6CD00D3F642 /* QuickActionHandler.swift */,
+			);
+			path = QuickActionHandler;
+			sourceTree = "<group>";
+		};
 		59CB51BE28A82C82001CC061 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +163,7 @@
 				59CB522C28A99649001CC061 /* Network */,
 				59CB520428A8985C001CC061 /* Builders */,
 				59CB521428A8A2D2001CC061 /* Extensions */,
+				59729B1028AAD6BC00D3F642 /* QuickActionHandler */,
 				59CB51E228A86AA9001CC061 /* Supporting Files */,
 			);
 			path = "OC-P10-Reciplease";
@@ -213,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB51F628A890DE001CC061 /* SearchViewController.swift */,
+				59729B0628AAD4A900D3F642 /* CameraViewController.swift */,
 				59CB521128A89DAE001CC061 /* View Models */,
 			);
 			path = "Search View Controller";
@@ -284,6 +306,7 @@
 				59CB521C28A92286001CC061 /* String+Trimming.swift */,
 				59CB521A28A921EA001CC061 /* UIViewController+Alerts.swift */,
 				59CB524428A9B6B6001CC061 /* UIColor+Customs.swift */,
+				59729B0E28AAD69500D3F642 /* UIViewController+EndEditing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				59CB522F28A9967C001CC061 /* RecipesResponse.swift */,
+				59729B0A28AAD5FC00D3F642 /* ProductsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +359,8 @@
 			children = (
 				59CB522D28A99659001CC061 /* RecipeNetwork.swift */,
 				59CB523B28A99B77001CC061 /* RecipeNetworkType.swift */,
+				59729B0828AAD5E000D3F642 /* ProductsNetwork.swift */,
+				59729B0C28AAD64900D3F642 /* ProductsNetworkType.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -343,8 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				59CB523928A99AA7001CC061 /* CoreDataStack.swift */,
-				59CB523E28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift */,
-				59CB523D28A9ABBD001CC061 /* Recipe+CoreDataClass.swift */,
+				59729B1428AB199200D3F642 /* Recipe+CoreDataClass.swift */,
+				59729B1328AB199100D3F642 /* Recipe+CoreDataProperties.swift */,
 				59CB523228A996CF001CC061 /* Recipes.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -479,7 +505,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59CB523F28A9ABBD001CC061 /* Recipe+CoreDataProperties.swift in Sources */,
 				59CB523A28A99AA7001CC061 /* CoreDataStack.swift in Sources */,
 				59CB51F728A890DE001CC061 /* SearchViewController.swift in Sources */,
 				59CB520C28A89990001CC061 /* TextFieldBuilder.swift in Sources */,
@@ -496,28 +521,35 @@
 				59CB51FA28A891CD001CC061 /* FavoritesViewController.swift in Sources */,
 				59CB522628A939C5001CC061 /* CustomTableViewCell.swift in Sources */,
 				59CB522428A939AC001CC061 /* RecipeCellViewModel.swift in Sources */,
+				59729B1628AB199200D3F642 /* Recipe+CoreDataClass.swift in Sources */,
 				59CB520628A89876001CC061 /* ViewBuilder.swift in Sources */,
 				59CB520828A898DE001CC061 /* StackViewBuilder.swift in Sources */,
-				59CB524028A9ABBD001CC061 /* Recipe+CoreDataClass.swift in Sources */,
+				59729B0D28AAD64900D3F642 /* ProductsNetworkType.swift in Sources */,
 				59CB51CB28A82C82001CC061 /* AppDelegate.swift in Sources */,
 				59CB520E28A899D2001CC061 /* TableViewBuilder.swift in Sources */,
 				59CB523C28A99B77001CC061 /* RecipeNetworkType.swift in Sources */,
+				59729B0728AAD4A900D3F642 /* CameraViewController.swift in Sources */,
 				59CB51F228A88E1E001CC061 /* DetailsCoordinator.swift in Sources */,
+				59729B0F28AAD69500D3F642 /* UIViewController+EndEditing.swift in Sources */,
 				59CB520A28A89931001CC061 /* LabelBuilder.swift in Sources */,
 				59CB521628A8A2E3001CC061 /* String+Capitals.swift in Sources */,
 				59CB521328A89DBD001CC061 /* SearchViewModel.swift in Sources */,
 				59CB524328A9B67F001CC061 /* DetailsViewModel.swift in Sources */,
 				59CB521D28A92286001CC061 /* String+Trimming.swift in Sources */,
+				59729B0B28AAD5FC00D3F642 /* ProductsResponse.swift in Sources */,
 				59CB51ED28A88B51001CC061 /* FavoritesCoordinator.swift in Sources */,
 				59CB523428A996CF001CC061 /* Recipes.xcdatamodeld in Sources */,
 				59CB520128A893C7001CC061 /* DetailsViewController.swift in Sources */,
 				59CB524728A9B6F2001CC061 /* TextViewBuilder.swift in Sources */,
 				59CB521B28A921EA001CC061 /* UIViewController+Alerts.swift in Sources */,
+				59729B1228AAD6CD00D3F642 /* QuickActionHandler.swift in Sources */,
 				59CB521028A899E9001CC061 /* ButtonBuilder.swift in Sources */,
 				59CB522828A93D7E001CC061 /* ImageViewBuilder.swift in Sources */,
 				59CB521928A8A752001CC061 /* FavoritesViewModel.swift in Sources */,
 				59CB520328A893CF001CC061 /* DirectionsViewController.swift in Sources */,
 				59CB51E528A88A36001CC061 /* Coordinator.swift in Sources */,
+				59729B0928AAD5E000D3F642 /* ProductsNetwork.swift in Sources */,
+				59729B1528AB199200D3F642 /* Recipe+CoreDataProperties.swift in Sources */,
 				59CB522E28A99659001CC061 /* RecipeNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
