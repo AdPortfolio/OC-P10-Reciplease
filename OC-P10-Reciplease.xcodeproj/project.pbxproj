@@ -54,6 +54,8 @@
 		59CB524328A9B67F001CC061 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524228A9B67F001CC061 /* DetailsViewModel.swift */; };
 		59CB524728A9B6F2001CC061 /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */; };
 		59CB524A28A9CE02001CC061 /* DirectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */; };
+		59CEB3DD28ABDB8B00FFCEBF /* basket.json in Resources */ = {isa = PBXBuildFile; fileRef = 59CEB3DC28ABDB8B00FFCEBF /* basket.json */; };
+		59CEB3DF28ABF54000FFCEBF /* favoritesAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 59CEB3DE28ABF54000FFCEBF /* favoritesAnim.json */; };
 		806D9E13D204D4D55548C0F7 /* libPods-OC-P10-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026FD4728387BBE99CC40B14 /* libPods-OC-P10-Reciplease.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		59CB524228A9B67F001CC061 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		59CB524628A9B6F2001CC061 /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 		59CB524928A9CE02001CC061 /* DirectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewModel.swift; sourceTree = "<group>"; };
+		59CEB3DC28ABDB8B00FFCEBF /* basket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basket.json; sourceTree = "<group>"; };
+		59CEB3DE28ABF54000FFCEBF /* favoritesAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favoritesAnim.json; sourceTree = "<group>"; };
 		64889E64429D9D904BB20227 /* Pods-OC-P10-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		ED94D0BFD773A8260598DF27 /* Pods-OC-P10-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-P10-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-OC-P10-Reciplease/Pods-OC-P10-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +182,8 @@
 		59CB51E228A86AA9001CC061 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59CEB3DE28ABF54000FFCEBF /* favoritesAnim.json */,
+				59CEB3DC28ABDB8B00FFCEBF /* basket.json */,
 				59CB51D328A82C83001CC061 /* Assets.xcassets */,
 				59CB51D528A82C83001CC061 /* LaunchScreen.storyboard */,
 				59CB51DF28A86939001CC061 /* Info.plist */,
@@ -467,6 +473,8 @@
 			files = (
 				59CB51D728A82C83001CC061 /* LaunchScreen.storyboard in Resources */,
 				59CB51D428A82C83001CC061 /* Assets.xcassets in Resources */,
+				59CEB3DF28ABF54000FFCEBF /* favoritesAnim.json in Resources */,
+				59CEB3DD28ABDB8B00FFCEBF /* basket.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
