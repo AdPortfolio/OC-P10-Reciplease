@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Lottie
 
 final class FavoritesViewController: UIViewController {
     
@@ -24,6 +25,22 @@ final class FavoritesViewController: UIViewController {
         .registerCell(cellClass: CustomTableViewCell.self, and: CustomTableViewCell.identifier)
         .build()
 
+    private let favLottieView:  AnimationView = {
+        let animation = AnimationView()
+        animation.loopMode = .loop
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        return animation
+    }()
+    
+    private let lottieLabel = LabelBuilder()
+        .setBackgroundColor(with: .clear)
+        .setTextAlignment(to: .center)
+        .setFont(to: "Chalkduster", with: 20, and: .body)
+        .setTextColor(with: .systemGray)
+        .setMaxContentSizeCategory(as: .extraExtraLarge)
+        .setNumberOfLines(1)
+        .build()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
@@ -44,19 +61,22 @@ final class FavoritesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        initViewModel()
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        addLottieAnim()
     }
     
     deinit {
         print("Fav VC deinit")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        initViewModel()
     }
     
     @objc func initViewModel() {
@@ -95,6 +115,16 @@ final class FavoritesViewController: UIViewController {
             }
         }
     }
+    
+    func addLottieAnim() {
+            let path = Bundle.main.path(forResource: "favoritesAnim", ofType: "json") ?? ""
+        favLottieView.backgroundColor = .clear
+        favLottieView.animation = Animation.filepath(path)
+      
+        favLottieView.animationSpeed = 0.3
+        favLottieView.play()
+    }
+    
 }
 //MARK: - View Model Binding
 extension FavoritesViewController {
@@ -110,13 +140,36 @@ extension FavoritesViewController {
         viewModel.didInitViewModel = {
             self.initViewModel()
         }
+        
+        viewModel.didShowAnimation = {
+            self.favLottieView.isHidden = false
+            self.favLottieView.play()
+            self.lottieLabel.isHidden = false
+        }
+        
+        viewModel.didHideAnimation = {
+            self.favLottieView.isHidden = true
+            self.lottieLabel.isHidden = true
+        }
+        
+        viewModel.lottieLabelUpdater = { text in
+            self.lottieLabel.text = text
+        }
     }
 }
 
 //MARK: - User Interface Configuration
 extension FavoritesViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        resultsTableView.bringSubviewToFront(favLottieView)
+    }
+    
     private func setupUI() {
         view.addSubview(resultsTableView)
+        resultsTableView.addSubview(favLottieView)
+        resultsTableView.addSubview(lottieLabel)
+        
         navigationItem.rightBarButtonItem = deleteAllRecipesButton
         navigationItem.rightBarButtonItem?.tintColor = .label
         
@@ -127,5 +180,13 @@ extension FavoritesViewController {
         resultsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         resultsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         resultsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        favLottieView.centerXAnchor.constraint(equalTo: resultsTableView.centerXAnchor).isActive = true
+        favLottieView.centerYAnchor.constraint(equalTo: resultsTableView.centerYAnchor).isActive = true
+        favLottieView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        favLottieView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        lottieLabel.topAnchor.constraint(equalTo: favLottieView.bottomAnchor, constant: 8).isActive = true
+        lottieLabel.centerXAnchor.constraint(equalTo: favLottieView.centerXAnchor).isActive = true
     }
 }

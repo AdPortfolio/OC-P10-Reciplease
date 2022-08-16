@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class SearchViewController: UIViewController {
 
@@ -37,6 +38,12 @@ final class SearchViewController: UIViewController {
         .setBackgroundColor(with: .lightGray)
         .build()
     
+    private let basketLottieView:  AnimationView = {
+        let animation = AnimationView()
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        return animation
+    }()
+
     // Stack Views
     private let verticalStackView = StackViewBuilder()
         .setBackgroundColor(color: .clear)
@@ -66,7 +73,7 @@ final class SearchViewController: UIViewController {
         .setNumberOfLines(0)
         .build()
     
-    let ingredientsLabel = LabelBuilder()
+    private let ingredientsLabel = LabelBuilder()
         .setBackgroundColor(with: .systemGray5)
         .setTextAlignment(to: .natural)
         .setAccessibilityLabel(as: "Ingrédients")
@@ -75,6 +82,16 @@ final class SearchViewController: UIViewController {
         .setMaxContentSizeCategory(as: .extraExtraLarge)
         .setNumberOfLines(1)
         .build()
+    
+    private let lottieLabel = LabelBuilder()
+        .setBackgroundColor(with: .clear)
+        .setTextAlignment(to: .center)
+        .setFont(to: "Chalkduster", with: 20, and: .body)
+        .setTextColor(with: .systemGray)
+        .setMaxContentSizeCategory(as: .extraExtraLarge)
+        .setNumberOfLines(1)
+        .build()
+    
     
     // Text Field
     let ingredientsTextField = TextFieldBuilder()
@@ -132,6 +149,7 @@ final class SearchViewController: UIViewController {
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         clearButton.addTarget(self, action: #selector(clearList), for: .touchUpInside)
         searchButton.addTarget(self, action: #selector(searchRecipe), for: .touchUpInside)
+        addLottieAnim()
     }
     
     override func viewDidLoad() {
@@ -153,16 +171,27 @@ final class SearchViewController: UIViewController {
         print("Search deinit")
     }
     
+    func addLottieAnim() {
+            let path = Bundle.main.path(forResource: "basket", ofType: "json") ?? ""
+            basketLottieView.backgroundColor = .clear
+            basketLottieView.animation = Animation.filepath(path)
+            basketLottieView.loopMode = .loop
+            basketLottieView.play()
+    }
+    
     // MARK: - Actions Methods
     @objc private func addIngredient() {
         guard let textFieldText = ingredientsTextField.text, !textFieldText.isEmpty else {return}
         viewModel.addIngredient(with: textFieldText)
+        basketLottieView.isHidden = true
+        lottieLabel.isHidden = true
         ingredientsTextField.text?.removeAll()
         ingredientsTableView.reloadData()
     }
     
     @objc private func clearList() {
         viewModel.clearIngredients()
+        basketLottieView.isHidden = false
         ingredientsTableView.reloadData()
     }
     
@@ -224,11 +253,27 @@ extension SearchViewController {
         viewModel.ingredientsLabelUpdater = { text in
             self.ingredientsLabel.text = text
         }
+        
+        viewModel.didShowAnimation = {
+            self.basketLottieView.isHidden = false
+            self.lottieLabel.isHidden = false
+        }
+        
+        viewModel.lottieLabelUpdater = { text in
+            self.lottieLabel.text = text
+        }
     }
+    
+   
 }
 
 //MARK: - User Interface Configuration
 extension SearchViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ingredientsTableView.bringSubviewToFront(basketLottieView)
+    }
+    
     private func setupUI() {
         hideKeyboardWhenTappedAround()
         navigationItem.rightBarButtonItem = cameraButton
@@ -250,6 +295,9 @@ extension SearchViewController {
         view.addSubview(clearButton)
         view.addSubview(ingredientsTableView)
         view.addSubview(searchButton)
+       
+        ingredientsTableView.addSubview(basketLottieView)
+        ingredientsTableView.addSubview(lottieLabel)
         
         containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -273,6 +321,7 @@ extension SearchViewController {
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         ingredientsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        ingredientsLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         ingredientsLabel.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 16).isActive = true
         
         clearButton.centerYAnchor.constraint(equalTo: ingredientsLabel.centerYAnchor).isActive = true
@@ -283,6 +332,17 @@ extension SearchViewController {
         ingredientsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
         ingredientsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         ingredientsTableView.bottomAnchor.constraint(equalTo: searchButton.topAnchor).isActive = true
+       
+        lottieLabel.text = "Add some ingredients..."
+      
+        
+        basketLottieView.centerXAnchor.constraint(equalTo: ingredientsTableView.centerXAnchor).isActive = true
+        basketLottieView.centerYAnchor.constraint(equalTo: ingredientsTableView.centerYAnchor).isActive = true
+        basketLottieView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        basketLottieView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+ 
+        lottieLabel.topAnchor.constraint(equalTo: basketLottieView.bottomAnchor).isActive = true
+        lottieLabel.centerXAnchor.constraint(equalTo: ingredientsTableView.centerXAnchor).isActive = true
         
         searchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         searchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true

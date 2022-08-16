@@ -19,6 +19,11 @@ final class FavoritesViewModel: NSObject {
     var didGetDetails: ((RecipeCellViewModel) -> Void)?
     var didInitViewModel: (() -> Void)?
     
+    var lottieLabelUpdater: ((String) -> Void)?
+    
+    var didShowAnimation: (() -> Void)?
+    var didHideAnimation: (() -> Void)?
+    
     var recipes: [Recipe]?
     
     var recipeCellViewModels = [RecipeCellViewModel]() {
@@ -34,6 +39,7 @@ final class FavoritesViewModel: NSObject {
     // MARK: - Inputs
     func viewDidLoad() {
         titleText?("Reciplease")
+        lottieLabelUpdater?("Add your favorite recipes...")
         recipesUpdater?(recipes)
         NotificationCenter.default.addObserver(self, selector: #selector(self.favoritesHaveChanged(notification:)), name: Notification.Name(notificationName), object: nil)
     }
@@ -118,6 +124,12 @@ final class FavoritesViewModel: NSObject {
 extension FavoritesViewModel: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if recipeCellViewModels.count == 0 {
+            didShowAnimation?()
+        } else {
+            didHideAnimation?()
+        }
+        
         return recipeCellViewModels.count
     }
     
@@ -130,6 +142,8 @@ extension FavoritesViewModel: UITableViewDataSource {
         cell.cellViewModel = cellVM
         return cell
     }
+    
+    
 }
 
 extension FavoritesViewModel: UITableViewDelegate {

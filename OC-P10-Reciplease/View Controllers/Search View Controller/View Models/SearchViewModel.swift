@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 final class SearchViewModel: NSObject {
     
     private var network: ProductsNetworkType!
@@ -32,11 +30,12 @@ final class SearchViewModel: NSObject {
     var searchIngredientsUpdater: ((String) -> Void)?
     var clearButtonUpdater: ((String) -> Void)?
     var addButtonUpdater: ((String) -> Void)?
+    var lottieLabelUpdater: ((String) -> Void)?
     
     var didShowHidePickerView: (() -> Void)?
     var didPickerViewReloadAllComponents: (() -> Void)?
     var didPresentAlert: ((Error) -> Void)?
-  
+    var didShowAnimation: (() -> Void)?
     // MARK: - Inputs
     func viewDidLoad() {
         titleText?("Reciplease")
@@ -45,6 +44,7 @@ final class SearchViewModel: NSObject {
         ingredientsLabelUpdater?("Your ingredients :")
         clearButtonUpdater?("Clear")
         addButtonUpdater?("Add")
+        lottieLabelUpdater?("Add some ingredients..")
         searchLabelUpdater?("Search for recipes")
         ingredientsArrayUpdater?(ingredientsArray)
     }
@@ -115,11 +115,15 @@ final class SearchViewModel: NSObject {
             }
         }
     }
+    
 }
 
 extension SearchViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return ingredientsArray.count
+        if ingredientsArray.count == 0 {
+            didShowAnimation?()
+        }
+        return ingredientsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
