@@ -10,9 +10,9 @@ import UIKit
 final class SearchResultsCoordinator: Coordinator {
     
     // MARK: - Properties
-    private let navigationController: NavigationController
+    private let navigationController:  NavigationController
     private var ingredients: String
-    
+
     init(navigationController: NavigationController, ingredients: String) {
         self.navigationController = navigationController
         self.ingredients = ingredients
@@ -22,6 +22,24 @@ final class SearchResultsCoordinator: Coordinator {
     override func start() {
         navigationController.delegate = self
         showSearchResultsScreen()
+    }
+    
+    deinit {
+        print("SearchResultsC deinit")
+    }
+    
+    // MARK: - Navigation Management
+    override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController)  else {
+            return
+        }
+        
+        if let searchResultsVC = fromViewController as? SearchResultsViewController {
+            searchResultsVC.viewModel.network = nil
+            searchResultsVC.viewModel = nil
+            didFinish?(self)
+            navigationController.delegate = parentCoordinator
+        }
     }
 }
 
@@ -35,6 +53,7 @@ extension SearchResultsCoordinator {
         viewController.didGetDetails = { [weak self] cell in
             self?.getDetails(cell: cell)
         }
+        
         navigationController.pushViewController(viewController, animated: true)
     }
     

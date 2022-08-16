@@ -30,9 +30,11 @@ final class FavoritesCoordinator: Coordinator {
 }
 
 extension FavoritesCoordinator {
+    
     private func showFavoritesScreen() {
         guard let recipes = recipes else {return}
         let viewModel = FavoritesViewModel(recipes: recipes)
+        
         let favoritesViewController = FavoritesViewController(viewModel: viewModel)
         
         favoritesViewController.didGetDetails = { [weak self] cell in

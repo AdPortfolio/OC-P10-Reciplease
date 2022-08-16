@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 final class DetailsCoordinator: Coordinator {
     
@@ -22,6 +23,25 @@ final class DetailsCoordinator: Coordinator {
     override func start() {
         navigationController.delegate = self
         showDetailsScreen()
+    }
+    
+    deinit {
+        print("DetailsC deinit")
+    }
+    
+    // MARK: - Navigation Management
+    override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController)  else {
+            return
+        }
+        
+        if let detailsVC = fromViewController as? DetailsViewController {
+            detailsVC.viewModel.recipeCellViewModel = nil
+            print("detailsVC.viewModel.recipeCellViewModel = nil")
+            detailsVC.viewModel = nil
+            didFinish?(self)
+            navigationController.delegate = parentCoordinator
+        }
     }
 }
 

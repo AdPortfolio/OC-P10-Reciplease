@@ -23,6 +23,25 @@ final class DirectionsCoordinator: Coordinator {
         navigationController.delegate = self
         showDirectionsScreen()
     }
+    
+    deinit {
+        print("DirectionsC deinit")
+    }
+    
+    // MARK: - Navigation Management
+    override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController)  else {
+            return
+        }
+        
+        if let directionsVC = fromViewController as? DirectionsViewController {
+            directionsVC.viewModel.recipeCellViewModel = nil
+            print("directionsVC.viewModel.recipeCellViewModel = nil")
+            directionsVC.viewModel = nil
+            didFinish?(self)
+            navigationController.delegate = parentCoordinator
+        }
+    }
 }
 
 extension DirectionsCoordinator {
