@@ -13,6 +13,10 @@ final class DirectionsViewController: UIViewController , WKNavigationDelegate {
     // MARK: - Properties
     var viewModel: DirectionsViewModel!
     private var webView: WKWebView!
+  
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     // MARK: - View Controller Life Cycle
     init(viewModel: DirectionsViewModel) {

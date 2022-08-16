@@ -21,6 +21,10 @@ final class SearchResultsViewController: UIViewController {
         .registerCell(cellClass: CustomTableViewCell.self, and: CustomTableViewCell.identifier)
         .build()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     // MARK: - View Controller Life Cycle
     init(viewModel: SearchResultsViewModel) {
         self.viewModel = viewModel
@@ -71,7 +75,7 @@ extension SearchResultsViewController {
 extension SearchResultsViewController {
     private func setupUI() {
         view.addSubview(resultsTableView)
-        view.backgroundColor = .brown
+        view.backgroundColor = .systemGray5
         navigationItem.leftBarButtonItem?.tintColor = .label
         resultsTableView.dataSource = viewModel
         resultsTableView.delegate = viewModel

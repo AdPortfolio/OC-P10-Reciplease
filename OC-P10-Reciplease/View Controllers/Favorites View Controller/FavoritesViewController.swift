@@ -23,6 +23,10 @@ final class FavoritesViewController: UIViewController {
         .setBackgroundColor(color: .systemGray5)
         .registerCell(cellClass: CustomTableViewCell.self, and: CustomTableViewCell.identifier)
         .build()
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     // MARK: - View Controller Life Cycle
     init(viewModel: FavoritesViewModel) {
@@ -92,7 +96,6 @@ final class FavoritesViewController: UIViewController {
         }
     }
 }
-
 //MARK: - View Model Binding
 extension FavoritesViewController {
     private func bind(to: FavoritesViewModel){
@@ -102,6 +105,10 @@ extension FavoritesViewController {
         
         viewModel.didGetDetails = { recipeVM in
             self.didGetDetails?(recipeVM)
+        }
+        
+        viewModel.didInitViewModel = {
+            self.initViewModel()
         }
     }
 }
