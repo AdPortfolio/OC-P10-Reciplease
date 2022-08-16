@@ -17,6 +17,8 @@ final class FavoritesViewModel: NSObject {
     var reloadTableView: (() -> Void)?
     var recipesUpdater: (([Recipe]?) -> Void)?
     var didGetDetails: ((RecipeCellViewModel) -> Void)?
+    var didInitViewModel: (() -> Void)?
+    
     var recipes: [Recipe]?
     
     var recipeCellViewModels = [RecipeCellViewModel]() {
@@ -24,7 +26,7 @@ final class FavoritesViewModel: NSObject {
             reloadTableView?()
         }
     }
-
+    
     init(recipes: [Recipe]) {
         self.recipes = recipes
     }
@@ -46,7 +48,6 @@ final class FavoritesViewModel: NSObject {
             }
         }
     }
-    
     func getRecipes() {
         guard let recipes = recipes else {
             return
@@ -108,7 +109,7 @@ final class FavoritesViewModel: NSObject {
             print("impossible to save")
         }
     }
-    
+
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
         return recipeCellViewModels[indexPath.row]
     }
@@ -153,6 +154,7 @@ extension FavoritesViewModel: UITableViewDelegate {
             
             // Remove row from TableView
             recipes.remove(at: indexPath.row)
+            didInitViewModel?()
             getRecipes()
         }
         deleteAction.image = UIImage(systemName: "xmark.circle")

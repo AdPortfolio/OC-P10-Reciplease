@@ -8,11 +8,13 @@
 import UIKit
 import WebKit
 
-final class DirectionsViewController: UIViewController, WKNavigationDelegate {
-
-    let viewModel: DirectionsViewModel!
+final class DirectionsViewController: UIViewController , WKNavigationDelegate {
+    
+    // MARK: - Properties
+    var viewModel: DirectionsViewModel!
     private var webView: WKWebView!
     
+    // MARK: - View Controller Life Cycle
     init(viewModel: DirectionsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +28,7 @@ final class DirectionsViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         var comp = URLComponents(string: viewModel.recipeCellViewModel.url)
         comp?.scheme = "https"
+        
         guard let http = comp?.string else {return}
         guard let url = URL(string: http) else {return}
         bind(to: viewModel)
@@ -76,4 +79,3 @@ extension WKWebView {
         }
     }
 }
-

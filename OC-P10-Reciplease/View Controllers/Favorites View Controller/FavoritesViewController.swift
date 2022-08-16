@@ -110,10 +110,12 @@ extension FavoritesViewController {
 extension FavoritesViewController {
     private func setupUI() {
         view.addSubview(resultsTableView)
+        navigationItem.rightBarButtonItem = deleteAllRecipesButton
         navigationItem.rightBarButtonItem?.tintColor = .label
         
         navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: "Chalkduster", size: 20)!, .foregroundColor: UIColor.white]
         
+        deleteAllRecipesButton.accessibilityLabel = "Supprimer toutes les recettes Favorites"
         resultsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         resultsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         resultsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true

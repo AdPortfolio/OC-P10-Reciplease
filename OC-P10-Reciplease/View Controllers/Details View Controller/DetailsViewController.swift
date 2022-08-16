@@ -51,7 +51,6 @@ final class DetailsViewController: UIViewController {
         .setMaxContentSizeCategory(as: .extraExtraLarge)
         .build()
 
-        
     private let recipeTextView = TextViewBuilder()
         .setBackgroundColor(with: .systemGray5)
         .setText(text: " - ")
@@ -80,7 +79,6 @@ final class DetailsViewController: UIViewController {
         .setTextColor(with: .label)
         .setTextAlignment(to: .right)
         .build()
-    
     
     private let isFavoredSymbol = ImageViewBuilder()
         .setImageConfiguration(imageName: "checkmark.circle.fill", pointSize: 40, weight: .bold, scale: .large)

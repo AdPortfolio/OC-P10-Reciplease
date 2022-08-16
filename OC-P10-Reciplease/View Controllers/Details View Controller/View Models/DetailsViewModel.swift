@@ -5,7 +5,7 @@
 //  Created by Walim Aloui on 15/08/2022.
 //
 
-import Foundation
+import UIKit
 
 final class DetailsViewModel {
     // MARK: - Properties
