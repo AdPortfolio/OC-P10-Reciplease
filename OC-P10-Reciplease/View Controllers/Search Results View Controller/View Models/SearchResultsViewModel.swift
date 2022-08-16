@@ -8,14 +8,15 @@
 import UIKit
 
 final class SearchResultsViewModel: NSObject {
+    
     var network: RecipeNetworkType!
     var ingredients: String
     
     // MARK: - Closures
     var titleText: ((String) -> Void)?
     var backButtonItemTitleUpdater: ((String) -> Void)?
-    var reloadTableView: (() -> Void)?
     var ingredientsUpdater: ((String) -> Void)?
+    var reloadTableView: (() -> Void)?
     
     var didGetDetails: ((RecipeCellViewModel) -> Void)?
     var recipeCellViewModels = [RecipeCellViewModel]() {
@@ -23,16 +24,22 @@ final class SearchResultsViewModel: NSObject {
             reloadTableView?()
         }
     }
-    // MARK: - Inputs
+    
     init(network: RecipeNetworkType, ingredients: String) {
         self.network = network
         self.ingredients = ingredients
     }
     
+    // MARK: - Inputs
     func viewDidLoad() {
         titleText?("Reciplease")
         backButtonItemTitleUpdater?("Back")
         ingredientsUpdater?(ingredients)
+    }
+    
+    deinit {
+        print("NetworkResultsVM deinit")
+        print("SearchResultsVM deinit")
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
@@ -57,7 +64,7 @@ final class SearchResultsViewModel: NSObject {
         }
         recipeCellViewModels = recipeViewModelsList
     }
-    
+
     private func createCellViewModel(recipe: Recipe) -> RecipeCellViewModel {
         let label = recipe.label
         let ingredientsLines = recipe.ingredientLines
@@ -87,6 +94,7 @@ extension SearchResultsViewModel: UITableViewDataSource {
 }
 
 extension SearchResultsViewModel: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
         let cellVM = getCellViewModel(at: indexPath)

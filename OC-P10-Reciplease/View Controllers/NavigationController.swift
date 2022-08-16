@@ -7,10 +7,25 @@
 
 import UIKit
 
-class NavigationController: UINavigationController, UINavigationControllerDelegate {
-
+class NavigationController : UINavigationController, UINavigationControllerDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        QuickActionHandler.shared.configDynamicQuickActions()
         view.backgroundColor = .systemGray5
+        UINavigationBar.appearance().barTintColor = .systemGray5
+        
+        guard let font = UIFont(name: "Chalkduster", size: 20) else {return}
+        UINavigationBar.appearance().titleTextAttributes = [.font: font, .foregroundColor: UIColor.label]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        guard
+            let appDelegate  = UIApplication.shared.delegate as? AppDelegate,
+            let shortcutItem = appDelegate.launchedShortcutItem
+        else {return}
+        
+        QuickActionHandler.shared.handleQuickAction(shortcutItem)
     }
 }

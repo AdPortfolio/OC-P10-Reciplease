@@ -9,12 +9,15 @@ import UIKit
 import CoreData
 
 final class DetailsViewController: UIViewController {
+    
     // MARK: - Properties
     var viewModel: DetailsViewModel!
     
     private var recipes = [Recipe]()
+    
     // MARK: - Closures
     var didGetDirection: (() -> Void)?
+    var didAddNewRecipe: (([Recipe]) -> Void)?
     
     private lazy var unfavoredButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .done, target: self, action: #selector(addToFavorites))
     private lazy var favoredButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .done, target: self, action:  #selector(removeFromFavorites))
@@ -110,6 +113,10 @@ final class DetailsViewController: UIViewController {
         .setMaxContentSizeCategory(as: .extraExtraLarge)
         .build()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     // MARK: - View Controller Life Cycle
     init(viewModel: DetailsViewModel) {
         self.viewModel = viewModel
@@ -158,6 +165,10 @@ final class DetailsViewController: UIViewController {
         viewModel.viewDidLoad()
     }
     
+    deinit {
+        print("DetailsVC deinit")
+    }
+
     @objc private func getDirections() {
         didGetDirection?()
     }

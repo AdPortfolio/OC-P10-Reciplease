@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import Alamofire
 
 final class SearchResultsViewController: UIViewController {
-    
+   
     // MARK: - Properties
     var viewModel: SearchResultsViewModel!
     
     // MARK: - Closures
     var didGetDetails: ((RecipeCellViewModel) -> Void)?
-    
+
     // MARK: - User Interface Properties
     private let resultsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
@@ -43,8 +44,13 @@ final class SearchResultsViewController: UIViewController {
         initViewModel(ingredients: viewModel.ingredients)
     }
     
+    deinit {
+        print("SearchResultsVC deinit")
+    }
+    
     private func initViewModel(ingredients: String) {
         viewModel.getRecipes(with: ingredients)
+        
         // Reload TableView closure
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
