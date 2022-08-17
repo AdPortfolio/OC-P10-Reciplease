@@ -1,4 +1,4 @@
-module Pods_OC_P10_Reciplease {
+framework module Pods_OC_P10_Reciplease {
   umbrella header "Pods-OC-P10-Reciplease-umbrella.h"
 
   export *

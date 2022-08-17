@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1340"
+   LastUpgradeVersion = "1300"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E44BFD90BC9ED9084E66CB2EB7A55CFB"
-               BuildableName = "libPods-OC-P10-Reciplease.a"
+               BuildableName = "Pods_OC_P10_Reciplease.framework"
                BlueprintName = "Pods-OC-P10-Reciplease"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
