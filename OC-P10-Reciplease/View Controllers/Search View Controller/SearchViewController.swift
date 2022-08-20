@@ -94,13 +94,13 @@ final class SearchViewController: UIViewController {
     
     
     // Text Field
-    let ingredientsTextField = TextFieldBuilder()
+    private let ingredientsTextField = TextFieldBuilder()
         .setPlaceHolderString(placeholderString: "Lemon, Cheese, Sausages...", placeholderForegroundColor: .tertiaryLabel, placeholderFont: .boldSystemFont(ofSize: 17))
         .setFont(textStyle: .headline, scaledFont: .systemFont(ofSize: 17))
         .build()
     
     // Table View
-    let ingredientsTableView = TableViewBuilder()
+    private let ingredientsTableView = TableViewBuilder()
         .setBackgroundColor(color: .systemGray5)
         .registerCell(cellClass: UITableViewCell.self, and: "Cell")
         .build()
@@ -171,7 +171,7 @@ final class SearchViewController: UIViewController {
         print("Search deinit")
     }
     
-    func addLottieAnim() {
+    private func addLottieAnim() {
             let path = Bundle.main.path(forResource: "basket", ofType: "json") ?? ""
             basketLottieView.backgroundColor = .clear
             basketLottieView.animation = Animation.filepath(path)
