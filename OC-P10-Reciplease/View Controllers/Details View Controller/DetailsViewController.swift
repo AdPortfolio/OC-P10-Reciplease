@@ -174,7 +174,7 @@ final class DetailsViewController: UIViewController {
     }
     
     @objc private func addToFavorites(){
-        
+        // mise à jour du recipes du VM
         viewModel.recipes = recipes
         
         let recipeFetch: NSFetchRequest<Recipe> = Recipe.fetchRequest()
@@ -199,7 +199,6 @@ final class DetailsViewController: UIViewController {
         let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
         let newRecipe = Recipe(context: managedContext)
         newRecipe.favorites = true
-        
         newRecipe.setValue(viewModel.recipeCellViewModel.label, forKey: #keyPath(Recipe.label))
         newRecipe.setValue(viewModel.recipeCellViewModel.image, forKey: #keyPath(Recipe.image))
         newRecipe.setValue(viewModel.recipeCellViewModel.ingredientLines, forKey: #keyPath(Recipe.ingredientLines))
@@ -209,7 +208,9 @@ final class DetailsViewController: UIViewController {
         newRecipe.setValue(viewModel.recipeCellViewModel.favorites, forKey: #keyPath(Recipe.favorites))
         
         viewModel.recipes.insert(newRecipe, at: 0)
-        AppDelegate.sharedAppDelegate.coreDataStack.saveContext() // Save changes in CoreData
+        do {
+            try managedContext.save()
+        } catch {}
         
         var info = ["recipes":recipes]
         info["recipes"]?.append(contentsOf: recipes)
@@ -225,7 +226,7 @@ final class DetailsViewController: UIViewController {
         let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
         recipeFetch.sortDescriptors = [sortByName]
         do {
-            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let managedContext = PersistenceController.shared.container.viewContext
             let results = try managedContext.fetch(recipeFetch)
             viewModel.recipes = results
             for (_, result) in results.enumerated() {

@@ -19,7 +19,7 @@ public class Recipe: NSManagedObject, Decodable {
         
         guard CodingUserInfoKey.context != nil else { fatalError("cannot find context key") }
         
-        let managedObjectContext =  AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        let managedObjectContext =  PersistenceController.shared.container.viewContext
         
         guard let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: managedObjectContext) else { fatalError() }
         

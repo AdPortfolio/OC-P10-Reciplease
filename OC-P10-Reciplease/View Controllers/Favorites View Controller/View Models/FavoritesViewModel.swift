@@ -71,7 +71,7 @@ final class FavoritesViewModel: NSObject {
         let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
         recipeFetch.sortDescriptors = [sortByName]
         do {
-            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let managedContext = PersistenceController.shared.container.viewContext
             let results = try managedContext.fetch(recipeFetch)
             self.recipes = results
         } catch let error as NSError {
@@ -98,7 +98,7 @@ final class FavoritesViewModel: NSObject {
     }
     
     func clearDataBase() {
-        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        let managedContext = PersistenceController.shared.container.viewContext
         
         guard var recipes = recipes else {
             return
@@ -161,10 +161,15 @@ extension FavoritesViewModel: UITableViewDelegate {
                 return
             }
             
-            AppDelegate.sharedAppDelegate.coreDataStack.managedContext.delete(recipes[indexPath.row])
+            PersistenceController.shared.container.viewContext.delete(recipes[indexPath.row])
             
             // Save Changes
-            AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+            do {
+                try PersistenceController.shared.container.viewContext.save()
+            } catch {
+                
+            }
+            
             
             // Remove row from TableView
             recipes.remove(at: indexPath.row)
