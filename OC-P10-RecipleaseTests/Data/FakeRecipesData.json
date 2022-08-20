@@ -1,0 +1,15 @@
+{
+    "hits": [
+        {
+            "recipe":  {
+                "label": "Lemon Pie",
+                "image": "oneUnexistantImageUrl.jpg",
+                "url": "oneUnexistantRecipeUrl.com",
+                "yield": 26.0,
+                "ingredientLines":["1 first ingredient","1 second ingredient","1 third ingredient"],
+                "totalTime": 10.0,
+                "favorites": "nil"
+            }
+        }
+    ]
+}
