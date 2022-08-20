@@ -134,9 +134,8 @@ final class DetailsViewController: UIViewController {
         let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
         recipeFetch.sortDescriptors = [sortByName]
         do {
-            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let managedContext = PersistenceController.shared.container.viewContext
             let results = try managedContext.fetch(recipeFetch)
-            
             
             guard !results.isEmpty else {
                 navigationItem.rightBarButtonItem = unfavoredButton
@@ -180,8 +179,9 @@ final class DetailsViewController: UIViewController {
         let recipeFetch: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         let sortByName = NSSortDescriptor(key: #keyPath(Recipe.label), ascending: true)
         recipeFetch.sortDescriptors = [sortByName]
+        // Chercher si une recette existe déjà
         do {
-            let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+            let managedContext = PersistenceController.shared.container.viewContext
             let results = try managedContext.fetch(recipeFetch)
             for result in results {
                 if result.label == viewModel.recipeCellViewModel.label  {
@@ -194,9 +194,12 @@ final class DetailsViewController: UIViewController {
             print("failed in finding context")
         }
         
+        // Blanchit l'étoile
         navigationItem.rightBarButtonItem = favoredButton
+        
         viewModel.recipeCellViewModel.favorites = true
-        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        
+        let managedContext = PersistenceController.shared.container.viewContext
         let newRecipe = Recipe(context: managedContext)
         newRecipe.favorites = true
         newRecipe.setValue(viewModel.recipeCellViewModel.label, forKey: #keyPath(Recipe.label))
