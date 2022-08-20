@@ -17,20 +17,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var launchedShortcutItem: UIApplicationShortcutItem?
     
     // MARK: Data Properties
-    lazy var coreDataStack: CoreDataStack = .init(modelName: "Recipes")
-    
-    static let sharedAppDelegate: AppDelegate = {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("Unexpected app delegate type \(String(describing: UIApplication.shared.delegate))")
-        }
-        return delegate
-    }()
+    lazy var coreDataStack = PersistenceController.shared
     
     // MARK: - Application Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator.rootViewController
-        //   window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
         window?.makeKeyAndVisible()
         appCoordinator.start()
         
@@ -45,10 +37,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+        do {
+            try coreDataStack.container.viewContext.save()
+        } catch {}
     }
     
-    var orientationLock = UIInterfaceOrientationMask.all
+    var orientationLock = UIInterfaceOrientationMask.portrait
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock
