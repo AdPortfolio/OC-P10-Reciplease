@@ -11,6 +11,9 @@ import CoreData
 
 public class Recipe: NSManagedObject, Decodable {
     
+    static var didFavorBarButton: (() -> Void)?
+    static var didUnfavorBarButton: (() -> Void)?
+    
     enum CodingKeys: CodingKey {
         case label, image, url, yield, ingredientLines, totalTime
     }
@@ -39,5 +42,3 @@ public class Recipe: NSManagedObject, Decodable {
 extension CodingUserInfoKey {
     static let context = CodingUserInfoKey(rawValue: "context")
 }
-
-
