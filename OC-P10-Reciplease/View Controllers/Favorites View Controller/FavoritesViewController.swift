@@ -150,6 +150,10 @@ extension FavoritesViewController {
         viewModel.lottieLabelUpdater = { text in
             self.lottieLabel.text = text
         }
+        
+        viewModel.didSendAlert = { (message, title) in
+            self.alert(message: message, title: title)
+        }
     }
 }
 

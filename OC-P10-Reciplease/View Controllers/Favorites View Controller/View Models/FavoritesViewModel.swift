@@ -25,6 +25,7 @@ final class FavoritesViewModel: NSObject {
     var didHideAnimation: (() -> Void)?
     
     var recipes: [Recipe]?
+    var didSendAlert: ((String, String) -> Void)?
     
     var recipeCellViewModels = [RecipeCellViewModel]() {
         didSet {
@@ -114,7 +115,7 @@ final class FavoritesViewModel: NSObject {
         do {
             try managedContext.save()
         } catch  {
-            //  print("impossible to save")
+            didSendAlert?("Please Try again", "Issue")
         }
     }
 

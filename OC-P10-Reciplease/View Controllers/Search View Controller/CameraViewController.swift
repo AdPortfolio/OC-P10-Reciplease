@@ -146,6 +146,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AV
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {
+            alert(message: "Please check authorization in your Parameters", title: "Camera Issue")
             return
         }
         
