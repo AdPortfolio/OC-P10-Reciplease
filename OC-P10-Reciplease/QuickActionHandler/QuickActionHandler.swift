@@ -88,10 +88,10 @@ final class QuickActionHandler {
         
         switch actionType {
         case .favorites:
-            print("Handle Favorites1 action")
+         //   print("Handle Favorites1 action")
             NotificationCenter.default.post(name: Notification.Name("FavoritesQA"), object: nil, userInfo: nil)
         case .scan:
-            print("Handle Scan1 action")
+        //    print("Handle Scan1 action")
             NotificationCenter.default.post(name: Notification.Name("ScanQA"), object: nil, userInfo: nil)
         }
     }
