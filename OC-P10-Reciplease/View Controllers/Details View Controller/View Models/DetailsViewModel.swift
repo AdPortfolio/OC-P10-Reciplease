@@ -61,10 +61,28 @@ final class DetailsViewModel {
     }
     
     deinit {
-        print("DetailsVM deinit")
+       
     }
     
-    private func updateFavoredRecipes(recipes: [Recipe]) {
-        self.recipes = recipes
+    func checkExistence() {
+        Recipe.checkExistence(recipeCellVM: recipeCellViewModel)
+    }
+
+    func addRecipe() {
+        Recipe.addRecipe(recipeCellVM: recipeCellViewModel)
+    }
+    
+    func removeRecipe() {
+        Recipe.removeRecipe(recipeCellVM: recipeCellViewModel)
+    }
+    
+    func bindToRecipe() {
+        Recipe.didUnfavorBarButton = {
+            self.didUnfavorBarButton?()
+        }
+        
+        Recipe.didFavorBarButton = {
+            self.didFavorBarButton?()
+        }
     }
 }
