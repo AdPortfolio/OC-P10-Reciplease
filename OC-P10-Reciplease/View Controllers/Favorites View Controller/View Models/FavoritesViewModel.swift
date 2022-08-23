@@ -142,8 +142,6 @@ extension FavoritesViewModel: UITableViewDataSource {
         cell.cellViewModel = cellVM
         return cell
     }
-    
-    
 }
 
 extension FavoritesViewModel: UITableViewDelegate {
@@ -156,7 +154,6 @@ extension FavoritesViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
             
-            // Remove the note from the CoreData
             guard var recipes = recipes else {
                 return
             }
@@ -164,17 +161,12 @@ extension FavoritesViewModel: UITableViewDelegate {
             PersistenceController.shared.container.viewContext.delete(recipes[indexPath.row])
             
             // Save Changes
-            do {
-                try PersistenceController.shared.container.viewContext.save()
-            } catch {
-                
-            }
-            
+            try? PersistenceController.shared.container.viewContext.save()
             
             // Remove row from TableView
             recipes.remove(at: indexPath.row)
-            didInitViewModel?()
             getRecipes()
+            didInitViewModel?()
         }
         deleteAction.image = UIImage(systemName: "xmark.circle")
         deleteAction.backgroundColor = .systemRed

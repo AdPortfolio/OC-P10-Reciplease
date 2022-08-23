@@ -43,7 +43,7 @@ final class DirectionsViewController: UIViewController , WKNavigationDelegate {
     }
     
     deinit {
-        print("DirectionsVC deinit")
+      //  print("DirectionsVC deinit")
     }
 }
 

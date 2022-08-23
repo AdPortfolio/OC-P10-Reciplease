@@ -52,41 +52,36 @@ final class FavoritesViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         resultsTableView.delegate = viewModel
         resultsTableView.dataSource = viewModel
-        
-        initViewModel()
         setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    var recipes: Recipes?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         initViewModel()
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(to: viewModel)
         viewModel.viewDidLoad()
         addLottieAnim()
+        initViewModel()
     }
     
     deinit {
-        print("Fav VC deinit")
+    //    print("Fav VC deinit")
     }
     
     @objc func initViewModel() {
         resultsTableView.refreshControl?.endRefreshing()
-        viewModel.getRecipes()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            self.resultsTableView.refreshControl?.endRefreshing()
-              self.resultsTableView.reloadData()
-        }
+        viewModel.getRecipes()
+        self.resultsTableView.reloadData()
     }
     
     @objc func clearDatabase() {

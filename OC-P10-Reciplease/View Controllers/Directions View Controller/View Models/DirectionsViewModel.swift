@@ -26,6 +26,6 @@ final class DirectionsViewModel: ObservableObject {
     }
     
     deinit {
-        print("DirectionVM deinit")
+      //  print("DirectionVM deinit")
     }
 }
