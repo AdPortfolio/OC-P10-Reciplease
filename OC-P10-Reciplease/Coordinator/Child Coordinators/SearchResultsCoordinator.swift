@@ -25,7 +25,7 @@ final class SearchResultsCoordinator: Coordinator {
     }
     
     deinit {
-        print("SearchResultsC deinit")
+       // print("SearchResultsC deinit")
     }
     
     // MARK: - Navigation Management

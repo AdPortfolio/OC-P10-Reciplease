@@ -26,7 +26,7 @@ final class DetailsCoordinator: Coordinator {
     }
     
     deinit {
-        print("DetailsC deinit")
+     //   print("DetailsC deinit")
     }
     
     // MARK: - Navigation Management
@@ -37,7 +37,7 @@ final class DetailsCoordinator: Coordinator {
         
         if let detailsVC = fromViewController as? DetailsViewController {
             detailsVC.viewModel.recipeCellViewModel = nil
-            print("detailsVC.viewModel.recipeCellViewModel = nil")
+        //    print("detailsVC.viewModel.recipeCellViewModel = nil")
             detailsVC.viewModel = nil
             didFinish?(self)
             navigationController.delegate = parentCoordinator

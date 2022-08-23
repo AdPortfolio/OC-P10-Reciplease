@@ -25,7 +25,7 @@ final class DirectionsCoordinator: Coordinator {
     }
     
     deinit {
-        print("DirectionsC deinit")
+     //   print("DirectionsC deinit")
     }
     
     // MARK: - Navigation Management
@@ -36,7 +36,7 @@ final class DirectionsCoordinator: Coordinator {
         
         if let directionsVC = fromViewController as? DirectionsViewController {
             directionsVC.viewModel.recipeCellViewModel = nil
-            print("directionsVC.viewModel.recipeCellViewModel = nil")
+          //  print("directionsVC.viewModel.recipeCellViewModel = nil")
             directionsVC.viewModel = nil
             didFinish?(self)
             navigationController.delegate = parentCoordinator
