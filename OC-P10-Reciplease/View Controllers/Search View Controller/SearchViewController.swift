@@ -92,7 +92,6 @@ final class SearchViewController: UIViewController {
         .setNumberOfLines(1)
         .build()
     
-    
     // Text Field
     private let ingredientsTextField = TextFieldBuilder()
         .setPlaceHolderString(placeholderString: "Lemon, Cheese, Sausages...", placeholderForegroundColor: .tertiaryLabel, placeholderFont: .boldSystemFont(ofSize: 17))
@@ -159,16 +158,17 @@ final class SearchViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
+       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("did disappear")
+     //   print("did disappear")
         didFinish?()
     }
     
     deinit {
-        print("Search deinit")
+   //     print("Search deinit")
     }
     
     private func addLottieAnim() {
@@ -263,8 +263,6 @@ extension SearchViewController {
             self.lottieLabel.text = text
         }
     }
-    
-   
 }
 
 //MARK: - User Interface Configuration

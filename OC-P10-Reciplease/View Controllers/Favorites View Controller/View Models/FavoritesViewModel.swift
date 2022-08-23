@@ -50,12 +50,14 @@ final class FavoritesViewModel: NSObject {
                 self.recipes = recipes
                 getRecipes()
             } else {
-                print("issue")
+                print("empty saved recipes detected")
             }
         }
     }
+    
     func getRecipes() {
         guard let recipes = recipes else {
+            self.fetchData(recipes: [])
             return
         }
         self.fetchData(recipes: recipes)
@@ -112,7 +114,7 @@ final class FavoritesViewModel: NSObject {
         do {
             try managedContext.save()
         } catch  {
-            print("impossible to save")
+            //  print("impossible to save")
         }
     }
 

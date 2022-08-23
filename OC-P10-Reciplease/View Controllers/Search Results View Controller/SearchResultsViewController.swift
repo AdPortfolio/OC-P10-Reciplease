@@ -36,6 +36,10 @@ final class SearchResultsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bind(to: viewModel)
@@ -45,7 +49,7 @@ final class SearchResultsViewController: UIViewController {
     }
     
     deinit {
-        print("SearchResultsVC deinit")
+     //   print("SearchResultsVC deinit")
     }
     
     private func initViewModel(ingredients: String) {

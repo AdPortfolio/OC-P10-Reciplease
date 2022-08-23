@@ -42,7 +42,7 @@ extension MockRecipesNetwork: RecipeNetworkType {
         do {
             let data = try Data.recipeFromJSON(fileName: "FakeRecipesData")
             let recipe = try decoder.decode(RecipesResponse.self, from: data)
-            print(recipe)
+    
             completion(.success(recipe))
         } catch _ {
             completion(.failure(ServiceError.recipeError))

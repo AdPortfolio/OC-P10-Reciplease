@@ -38,8 +38,8 @@ final class SearchResultsViewModel: NSObject {
     }
     
     deinit {
-        print("NetworkResultsVM deinit")
-        print("SearchResultsVM deinit")
+//        print("NetworkResultsVM deinit")
+//        print("SearchResultsVM deinit")
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {

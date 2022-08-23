@@ -25,7 +25,7 @@ final class CameraViewController: UIViewController {
     
     private lazy var okBarButton = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(selectComponent))
     private lazy var cancelBarButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelModal))
-
+    
     private let belowView = ViewBuilder()
         .setBackgroundColor(with: .clear)
         .build()
@@ -83,17 +83,6 @@ final class CameraViewController: UIViewController {
         super.viewWillDisappear(animated)
         if (captureSession.isRunning == true) {
             captureSession.stopRunning()
-        }
-    }
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
-        
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
         }
     }
     
@@ -188,6 +177,17 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AV
         captureSession.addOutput(dataOutput)
     }
     
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+        
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            found(code: stringValue)
+        }
+    }
+    
     private func found(code: String) {
         viewModel.fetchProducts(with: code)
     }
@@ -217,23 +217,23 @@ extension CameraViewController {
         okBarButton.isEnabled = false
         
         view.addSubview(belowView)
-       
+        
         belowView.addSubview(pickerView)
-
+        
         belowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         belowView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         belowView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         belowView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-
+        
         pickerView.centerXAnchor.constraint(equalTo: belowView.centerXAnchor).isActive = true
         pickerView.centerYAnchor.constraint(equalTo: belowView.centerYAnchor).isActive = true
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspectFill
-
+        
         belowView.layer.insertSublayer(previewLayer, at: 0)
         previewLayer.frame = view.bounds
-
+        
         belowView.clipsToBounds = true
         belowView.layer.cornerRadius = 15.0
         belowView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]

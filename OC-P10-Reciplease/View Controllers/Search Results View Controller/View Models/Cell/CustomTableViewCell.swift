@@ -93,7 +93,7 @@ final class CustomTableViewCell: UITableViewCell {
     
     deinit {
         cellViewModel = nil
-        print("CustomTVCell deinit")
+   //     print("CustomTVCell deinit")
     }
     
     required init?(coder: NSCoder) {
