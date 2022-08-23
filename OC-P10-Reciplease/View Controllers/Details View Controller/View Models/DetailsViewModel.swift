@@ -22,18 +22,23 @@ final class DetailsViewModel {
     var imageUpdater: ((String) -> Void)?
     var yieldUpdater: ((String) -> Void)?
     var totalTimeUpdater: ((String) -> Void)?
+    var favoritesUpdater: ((Bool) -> Void)?
     var getDirectionsButtonUpdater: ((String) -> Void)?
     var isFavoredLabelUpdater: ((String) -> Void)?
+    
+    var didUnfavorBarButton: (() -> Void)?
+    var didFavorBarButton: (() -> Void)?
     
     init(recipeCellViewModel: RecipeCellViewModel) {
         self.recipeCellViewModel = recipeCellViewModel
     }
-
+    
     // MARK: - Inputs
     func viewDidLoad() {
         var info = [String:[Recipe]]()
         info["recipes"]?.append(contentsOf: recipes!)
         NotificationCenter.default.post(name: Notification.Name("Favorites"), object: nil, userInfo: info)
+        
         titleText?("Reciplease")
         backButtonItemTitleUpdater?("Back")
         mealLabelUpdater?(recipeCellViewModel.label)
@@ -50,6 +55,9 @@ final class DetailsViewModel {
         let totalTime = recipeCellViewModel.totalTime
         let stringedTotalTime = String(totalTime)
         totalTimeUpdater?(stringedTotalTime)
+        didUnfavorBarButton?()
+        bindToRecipe()
+        addRecipe()
     }
     
     deinit {
