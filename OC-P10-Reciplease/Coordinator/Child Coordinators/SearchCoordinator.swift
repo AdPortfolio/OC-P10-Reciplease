@@ -44,7 +44,6 @@ final class SearchCoordinator: Coordinator {
 }
 
 extension SearchCoordinator {
-    
     private func showSearchScreen() {
         let network = ProductsNetwork()
         let viewModel = SearchViewModel(network: network)

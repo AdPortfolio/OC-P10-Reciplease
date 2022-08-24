@@ -158,7 +158,6 @@ final class SearchViewController: UIViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
-       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -333,7 +332,6 @@ extension SearchViewController {
        
         lottieLabel.text = "Add some ingredients..."
       
-        
         basketLottieView.centerXAnchor.constraint(equalTo: ingredientsTableView.centerXAnchor).isActive = true
         basketLottieView.centerYAnchor.constraint(equalTo: ingredientsTableView.centerYAnchor).isActive = true
         basketLottieView.heightAnchor.constraint(equalToConstant: 200).isActive = true

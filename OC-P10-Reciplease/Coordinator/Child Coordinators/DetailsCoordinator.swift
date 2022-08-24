@@ -46,7 +46,6 @@ final class DetailsCoordinator: Coordinator {
 }
 
 extension DetailsCoordinator {
-    
     private func showDetailsScreen() {
         let viewModel = DetailsViewModel(recipeCellViewModel: recipeCellViewModel)
         let viewController = DetailsViewController(viewModel: viewModel)

@@ -10,7 +10,6 @@ import AVFoundation
 import Vision
 
 final class CameraViewController: UIViewController {
-    
     private var viewModel: SearchViewModel!
     private var componentsArray: [String] = []
     private var captureSession = AVCaptureSession()

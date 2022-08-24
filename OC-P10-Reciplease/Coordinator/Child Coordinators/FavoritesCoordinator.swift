@@ -11,7 +11,6 @@ final class FavoritesCoordinator: Coordinator {
     
     // MARK: - Properties
     private let navigationController = NavigationController()
-    
     var recipes: [Recipe]?
     
     var rootViewController: UIViewController {
@@ -30,7 +29,6 @@ final class FavoritesCoordinator: Coordinator {
 }
 
 extension FavoritesCoordinator {
-    
     private func showFavoritesScreen() {
         guard let recipes = recipes else {return}
         let viewModel = FavoritesViewModel(recipes: recipes)

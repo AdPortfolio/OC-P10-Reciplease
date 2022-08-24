@@ -44,7 +44,6 @@ final class SearchResultsCoordinator: Coordinator {
 }
 
 extension SearchResultsCoordinator {
-    
     private func showSearchResultsScreen() {
         let network = RecipeNetwork()
         let viewModel = SearchResultsViewModel(network: network, ingredients: ingredients)
