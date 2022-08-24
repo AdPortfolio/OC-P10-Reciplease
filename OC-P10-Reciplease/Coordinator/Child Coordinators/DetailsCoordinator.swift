@@ -24,11 +24,7 @@ final class DetailsCoordinator: Coordinator {
         navigationController.delegate = self
         showDetailsScreen()
     }
-    
-    deinit {
-     //   print("DetailsC deinit")
-    }
-    
+
     // MARK: - Navigation Management
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from), !navigationController.viewControllers.contains(fromViewController)  else {

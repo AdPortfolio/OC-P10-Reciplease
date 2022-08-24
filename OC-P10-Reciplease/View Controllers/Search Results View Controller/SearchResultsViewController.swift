@@ -50,10 +50,6 @@ final class SearchResultsViewController: UIViewController {
         initViewModel(ingredients: viewModel.ingredients)
     }
     
-    deinit {
-     //   print("SearchResultsVC deinit")
-    }
-    
     private func initViewModel(ingredients: String) {
         viewModel.getRecipes(with: ingredients)
         

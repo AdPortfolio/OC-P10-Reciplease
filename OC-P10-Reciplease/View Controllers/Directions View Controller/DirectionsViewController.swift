@@ -41,10 +41,6 @@ final class DirectionsViewController: UIViewController , WKNavigationDelegate {
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
-    
-    deinit {
-      //  print("DirectionsVC deinit")
-    }
 }
 
 // MARK: - View Model Binding

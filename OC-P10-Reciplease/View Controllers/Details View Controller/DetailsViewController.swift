@@ -140,10 +140,6 @@ final class DetailsViewController: UIViewController {
         viewModel.viewDidLoad()
     }
     
-    deinit {
-        //   print("DetailsVC deinit")
-    }
-    
     @objc private func getDirections() {
         didGetDirection?()
     }

@@ -59,11 +59,7 @@ final class DetailsViewModel {
         bindToRecipe()
         addRecipe()
     }
-    
-    deinit {
-       
-    }
-    
+
     func checkExistence() {
         Recipe.checkExistence(recipeCellVM: recipeCellViewModel)
     }

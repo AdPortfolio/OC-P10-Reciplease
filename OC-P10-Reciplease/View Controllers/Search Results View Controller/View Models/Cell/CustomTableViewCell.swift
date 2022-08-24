@@ -91,11 +91,6 @@ final class CustomTableViewCell: UITableViewCell {
         mealImageView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    deinit {
-        cellViewModel = nil
-   //     print("CustomTVCell deinit")
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

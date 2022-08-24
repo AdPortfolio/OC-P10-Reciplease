@@ -71,10 +71,4 @@ class SearchVMTests: XCTestCase {
         
         XCTAssertEqual(sut.ingredientsArray, ["- Lemon"])
     }
-    
-    func testGivenIngredients_WhenRemoveTwoCharectersIsHit_ThenOutputIsCorrect() {
-        var lemon = "- Lemon"
-        sut.removeTwoCharacters(from: &lemon)
-        XCTAssertEqual(lemon, "Lemon")
-    }
 }

@@ -165,11 +165,7 @@ final class SearchViewController: UIViewController {
      //   print("did disappear")
         didFinish?()
     }
-    
-    deinit {
-   //     print("Search deinit")
-    }
-    
+
     private func addLottieAnim() {
             let path = Bundle.main.path(forResource: "basket", ofType: "json") ?? ""
             basketLottieView.backgroundColor = .clear

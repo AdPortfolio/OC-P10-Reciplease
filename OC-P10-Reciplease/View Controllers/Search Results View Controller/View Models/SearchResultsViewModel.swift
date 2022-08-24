@@ -36,12 +36,7 @@ final class SearchResultsViewModel: NSObject {
         backButtonItemTitleUpdater?("Back")
         ingredientsUpdater?(ingredients)
     }
-    
-    deinit {
-//        print("NetworkResultsVM deinit")
-//        print("SearchResultsVM deinit")
-    }
-    
+
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
         return recipeCellViewModels[indexPath.row]
     }

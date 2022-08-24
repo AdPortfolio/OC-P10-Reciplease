@@ -72,11 +72,7 @@ final class FavoritesViewController: UIViewController {
         addLottieAnim()
         initViewModel()
     }
-    
-    deinit {
-    //    print("Fav VC deinit")
-    }
-    
+
     @objc func initViewModel() {
         resultsTableView.refreshControl?.endRefreshing()
         
