@@ -5,7 +5,7 @@
 //  Created by Walim Aloui on 14/08/2022.
 //
 
-import UIKit
+import Foundation
 
 final class SearchResultsViewModel: NSObject {
     
@@ -75,33 +75,5 @@ final class SearchResultsViewModel: NSObject {
         let favorites = false
        
         return RecipeCellViewModel(label: label, image: image, url: url, yield: yield, ingredientLines: ingredientsLines , totalTime: totalTime, favorites: favorites)
-    }
-}
-
-extension SearchResultsViewModel: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeCellViewModels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
-            fatalError("Unable to Dequeue Photo Table View Cell")
-        }
-        let cellVM = getCellViewModel(at: indexPath)
-        cell.cellViewModel = cellVM
-        return cell
-    }
-}
-
-extension SearchResultsViewModel: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {return}
-        let cellVM = getCellViewModel(at: indexPath)
-        didGetDetails?(cellVM)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
     }
 }

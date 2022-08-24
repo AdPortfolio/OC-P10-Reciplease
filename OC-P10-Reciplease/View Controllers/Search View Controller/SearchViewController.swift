@@ -153,8 +153,8 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ingredientsTableView.dataSource = viewModel
-        ingredientsTableView.delegate = viewModel
+        ingredientsTableView.dataSource = self
+        ingredientsTableView.delegate = self
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
@@ -212,6 +212,11 @@ final class SearchViewController: UIViewController {
         text = text.trim()
         return text
     }
+    
+    private func showHideAnimation() {
+        self.basketLottieView.isHidden = false
+        self.lottieLabel.isHidden = false
+    }
 }
 
 //MARK: - View Model Binding
@@ -253,18 +258,69 @@ extension SearchViewController {
             self.ingredientsLabel.text = text
         }
         
-        viewModel.didShowAnimation = {
-            self.basketLottieView.isHidden = false
-            self.lottieLabel.isHidden = false
-        }
-        
         viewModel.lottieLabelUpdater = { text in
             self.lottieLabel.text = text
         }
     }
 }
 
-//MARK: - User Interface Configuration
+// MARK: - Table View Data Source & Delegate
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if ingredientsArray.count == 0 {
+            showHideAnimation()
+        }
+        return ingredientsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = ingredientsArray[indexPath.row]
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
+        guard let font = UIFont(name:"Chalkduster", size: 20) else {
+            return UITableViewCell()
+        }
+        let fontMetrics = UIFontMetrics(forTextStyle: .title1)
+        cell.textLabel?.font = fontMetrics.scaledFont(for: font)
+        cell.maximumContentSizeCategory = .extraExtraLarge
+
+        return cell
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
+            var word = ingredientsArray[indexPath.row]
+            removeTwoCharacters(from: &word)
+            if let range = searchIngredients.range(of: word) {
+                searchIngredients.removeSubrange(range)
+             
+            }
+            ingredientsArray.remove(at: indexPath.row)
+            
+            tableView.reloadData()
+        }
+        deleteAction.image = UIImage(systemName: "xmark.circle")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    func removeTwoCharacters(from text: inout String) {
+        text.removeFirst()
+        text.removeFirst()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .systemGray5
+        cell.textLabel?.textColor = .secondaryLabel
+    }
+}
+
+// MARK: - User Interface Configuration
 extension SearchViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

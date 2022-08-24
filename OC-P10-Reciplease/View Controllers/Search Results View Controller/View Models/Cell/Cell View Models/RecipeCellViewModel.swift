@@ -5,7 +5,7 @@
 //  Created by Walim Aloui on 14/08/2022.
 //
 
-import UIKit
+import Foundation
 
 // MARK: - Recipe
 struct RecipeCellViewModel: Equatable {

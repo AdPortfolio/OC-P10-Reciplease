@@ -5,7 +5,7 @@
 //  Created by Walim Aloui on 14/08/2022.
 //
 
-import UIKit
+import Foundation
 
 final class SearchViewModel: NSObject {
     
@@ -35,7 +35,6 @@ final class SearchViewModel: NSObject {
     var didShowHidePickerView: (() -> Void)?
     var didPickerViewReloadAllComponents: (() -> Void)?
     var didPresentAlert: ((Error) -> Void)?
-    var didShowAnimation: (() -> Void)?
         
     // MARK: - Inputs
     func viewDidLoad() {
@@ -117,60 +116,4 @@ final class SearchViewModel: NSObject {
         }
     }
     
-}
-
-extension SearchViewModel: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ingredientsArray.count == 0 {
-            didShowAnimation?()
-        }
-        return ingredientsArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = ingredientsArray[indexPath.row]
-        cell.textLabel?.adjustsFontForContentSizeCategory = true
-        guard let font = UIFont(name:"Chalkduster", size: 20) else {
-            return UITableViewCell()
-        }
-        let fontMetrics = UIFontMetrics(forTextStyle: .title1)
-        cell.textLabel?.font = fontMetrics.scaledFont(for: font)
-        cell.maximumContentSizeCategory = .extraExtraLarge
-
-        return cell
-    }
-}
-
-extension SearchViewModel: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
-            var word = ingredientsArray[indexPath.row]
-            removeTwoCharacters(from: &word)
-            if let range = searchIngredients.range(of: word) {
-                searchIngredients.removeSubrange(range)
-             
-            }
-            ingredientsArray.remove(at: indexPath.row)
-            
-            tableView.reloadData()
-        }
-        deleteAction.image = UIImage(systemName: "xmark.circle")
-        
-        deleteAction.backgroundColor = .systemRed
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        configuration.performsFirstActionWithFullSwipe = true
-        return configuration
-    }
-    
-    func removeTwoCharacters(from text: inout String) {
-        text.removeFirst()
-        text.removeFirst()
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .systemGray5
-        cell.textLabel?.textColor = .secondaryLabel
-    }
 }

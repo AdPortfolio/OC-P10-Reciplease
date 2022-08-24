@@ -5,7 +5,7 @@
 //  Created by Walim Aloui on 14/08/2022.
 //
 
-import UIKit
+import Foundation
 import CoreData
 
 final class FavoritesViewModel: NSObject {
@@ -121,64 +121,5 @@ final class FavoritesViewModel: NSObject {
 
     func getCellViewModel(at indexPath: IndexPath) -> RecipeCellViewModel {
         return recipeCellViewModels[indexPath.row]
-    }
-}
-
-extension FavoritesViewModel: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if recipeCellViewModels.count == 0 {
-            didShowAnimation?()
-        } else {
-            didHideAnimation?()
-        }
-        
-        return recipeCellViewModels.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
-            fatalError("Unable to Dequeue Photo Table View Cell")
-        }
-        
-        let cellVM = getCellViewModel(at: indexPath)
-        cell.cellViewModel = cellVM
-        return cell
-    }
-}
-
-extension FavoritesViewModel: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {return}
-        let cellVM = getCellViewModel(at: indexPath)
-        didGetDetails?(cellVM)
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
-            
-            guard var recipes = recipes else {
-                return
-            }
-            
-            PersistenceController.shared.container.viewContext.delete(recipes[indexPath.row])
-            
-            // Save Changes
-            try? PersistenceController.shared.container.viewContext.save()
-            
-            // Remove row from TableView
-            recipes.remove(at: indexPath.row)
-            getRecipes()
-            didInitViewModel?()
-        }
-        deleteAction.image = UIImage(systemName: "xmark.circle")
-        deleteAction.backgroundColor = .systemRed
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        configuration.performsFirstActionWithFullSwipe = true
-        return configuration
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
     }
 }

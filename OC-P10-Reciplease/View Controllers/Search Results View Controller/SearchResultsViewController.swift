@@ -42,6 +42,8 @@ final class SearchResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultsTableView.dataSource = self
+        resultsTableView.delegate = self
         bind(to: viewModel)
         viewModel.viewDidLoad()
         setupUI()
@@ -81,14 +83,41 @@ extension SearchResultsViewController {
     }
 }
 
-// MARK: User Interface Setup
+// MARK: - Table View Data Source & Delegate
+extension SearchResultsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.recipeCellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
+            fatalError("Unable to Dequeue Photo Table View Cell")
+        }
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        cell.cellViewModel = cellVM
+        return cell
+    }
+}
+
+extension SearchResultsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        didGetDetails?(cellVM)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+}
+
+// MARK: - User Interface Setup
 extension SearchResultsViewController {
     private func setupUI() {
         view.addSubview(resultsTableView)
         view.backgroundColor = .systemGray5
         navigationItem.leftBarButtonItem?.tintColor = .label
-        resultsTableView.dataSource = viewModel
-        resultsTableView.delegate = viewModel
         
         resultsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         resultsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true

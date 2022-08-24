@@ -249,6 +249,13 @@
 			path = "Favorites VM Tests Group";
 			sourceTree = "<group>";
 		};
+		5916429B28B64B4300AB6876 /* Direction VM Test Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Direction VM Test Group";
+			sourceTree = "<group>";
+		};
 		59729B1028AAD6BC00D3F642 /* QuickActionHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +273,7 @@
 				590CB05A28AC9A5000CD847E /* Recipe Tests Group */,
 				5916428928B5849200AB6876 /* Search VM Tests Group */,
 				590CB05D28AC9A8500CD847E /* Search Results VM Test Group */,
+				5916429B28B64B4300AB6876 /* Direction VM Test Group */,
 				5916429528B5C41600AB6876 /* Details VM Tests Group */,
 				5916429828B5C8C200AB6876 /* Favorites VM Tests Group */,
 			);

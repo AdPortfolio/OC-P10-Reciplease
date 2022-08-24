@@ -50,8 +50,8 @@ final class FavoritesViewController: UIViewController {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
-        resultsTableView.delegate = viewModel
-        resultsTableView.dataSource = viewModel
+        resultsTableView.delegate = self
+        resultsTableView.dataSource = self
         setupUI()
     }
     
@@ -120,8 +120,19 @@ final class FavoritesViewController: UIViewController {
         favLottieView.play()
     }
     
+    private func showAnimation() {
+        self.favLottieView.isHidden = false
+        self.lottieLabel.isHidden = false
+        self.favLottieView.play()
+    }
+    
+    private func hideAnimation() {
+        self.favLottieView.isHidden = true
+        self.lottieLabel.isHidden = true
+    }
+    
 }
-//MARK: - View Model Binding
+// MARK: - View Model Binding
 extension FavoritesViewController {
     private func bind(to: FavoritesViewModel){
         viewModel.titleText = { text in
@@ -130,21 +141,6 @@ extension FavoritesViewController {
         
         viewModel.didGetDetails = { recipeVM in
             self.didGetDetails?(recipeVM)
-        }
-        
-        viewModel.didInitViewModel = {
-            self.initViewModel()
-        }
-        
-        viewModel.didShowAnimation = {
-            self.favLottieView.isHidden = false
-            self.favLottieView.play()
-            self.lottieLabel.isHidden = false
-        }
-        
-        viewModel.didHideAnimation = {
-            self.favLottieView.isHidden = true
-            self.lottieLabel.isHidden = true
         }
         
         viewModel.lottieLabelUpdater = { text in
@@ -157,7 +153,67 @@ extension FavoritesViewController {
     }
 }
 
-//MARK: - User Interface Configuration
+// MARK: - Table View Data Source & Delegate
+extension FavoritesViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if viewModel.recipeCellViewModels.count == 0 {
+            showAnimation()
+        } else {
+            hideAnimation()
+        }
+        
+        return viewModel.recipeCellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
+            fatalError("Unable to Dequeue Photo Table View Cell")
+        }
+        
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        cell.cellViewModel = cellVM
+        return cell
+    }
+}
+
+extension FavoritesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        didGetDetails?(cellVM)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
+            
+            guard var recipes = recipes else {
+                return
+            }
+            
+            PersistenceController.shared.container.viewContext.delete(recipes[indexPath.row])
+            
+            // Save Changes
+            try? PersistenceController.shared.container.viewContext.save()
+            
+            // Remove row from TableView
+            recipes.remove(at: indexPath.row)
+            viewModel.getRecipes()
+            initViewModel()
+        }
+        deleteAction.image = UIImage(systemName: "xmark.circle")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+}
+
+// MARK: - User Interface Configuration
 extension FavoritesViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
