@@ -11,7 +11,6 @@ import Foundation
 class MockProductsNetwork {
     
     let products: [Product]
-    
     var productsResponse: ProductsResponse?
     
     init(products: [Product]){

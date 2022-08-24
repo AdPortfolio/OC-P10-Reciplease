@@ -40,5 +40,4 @@ class ProductsAPINetworkTests: XCTestCase {
                        "tea-based-beverages",
                        "iced-teas"])
     }
-
 }
