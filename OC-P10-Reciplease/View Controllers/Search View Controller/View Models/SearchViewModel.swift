@@ -36,6 +36,7 @@ final class SearchViewModel: NSObject {
     var didPickerViewReloadAllComponents: (() -> Void)?
     var didPresentAlert: ((Error) -> Void)?
     var didShowAnimation: (() -> Void)?
+        
     // MARK: - Inputs
     func viewDidLoad() {
         titleText?("Reciplease")

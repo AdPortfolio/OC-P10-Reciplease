@@ -15,6 +15,9 @@
 		590CB06928ACCDD100CD847E /* RecipesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590CB06828ACCDD100CD847E /* RecipesResponseTests.swift */; };
 		590CB06B28ACCDF400CD847E /* DecodableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590CB06A28ACCDF400CD847E /* DecodableTestCase.swift */; };
 		5916428B28B584C000AB6876 /* SearchVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916428A28B584C000AB6876 /* SearchVMTests.swift */; };
+		5916428E28B5882E00AB6876 /* MockProductsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916428D28B5882E00AB6876 /* MockProductsNetwork.swift */; };
+		5916429028B5916800AB6876 /* ProductsResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916428F28B5916800AB6876 /* ProductsResponseTests.swift */; };
+		5916429228B596AC00AB6876 /* ProductsAPINetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5916429128B596AC00AB6876 /* ProductsAPINetworkTests.swift */; };
 		59729B0728AAD4A900D3F642 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0628AAD4A900D3F642 /* CameraViewController.swift */; };
 		59729B0928AAD5E000D3F642 /* ProductsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0828AAD5E000D3F642 /* ProductsNetwork.swift */; };
 		59729B0B28AAD5FC00D3F642 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59729B0A28AAD5FC00D3F642 /* ProductsResponse.swift */; };
@@ -87,6 +90,9 @@
 		590CB06828ACCDD100CD847E /* RecipesResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesResponseTests.swift; sourceTree = "<group>"; };
 		590CB06A28ACCDF400CD847E /* DecodableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableTestCase.swift; sourceTree = "<group>"; };
 		5916428A28B584C000AB6876 /* SearchVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVMTests.swift; sourceTree = "<group>"; };
+		5916428D28B5882E00AB6876 /* MockProductsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsNetwork.swift; sourceTree = "<group>"; };
+		5916428F28B5916800AB6876 /* ProductsResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponseTests.swift; sourceTree = "<group>"; };
+		5916429128B596AC00AB6876 /* ProductsAPINetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPINetworkTests.swift; sourceTree = "<group>"; };
 		59729B0628AAD4A900D3F642 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		59729B0828AAD5E000D3F642 /* ProductsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsNetwork.swift; sourceTree = "<group>"; };
 		59729B0A28AAD5FC00D3F642 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
@@ -210,6 +216,16 @@
 			path = "Search VM Test Group";
 			sourceTree = "<group>";
 		};
+		5916428C28B587FF00AB6876 /* Code Bar Test Group */ = {
+			isa = PBXGroup;
+			children = (
+				5916428D28B5882E00AB6876 /* MockProductsNetwork.swift */,
+				5916428F28B5916800AB6876 /* ProductsResponseTests.swift */,
+				5916429128B596AC00AB6876 /* ProductsAPINetworkTests.swift */,
+			);
+			path = "Code Bar Test Group";
+			sourceTree = "<group>";
+		};
 		59729B1028AAD6BC00D3F642 /* QuickActionHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +239,7 @@
 			children = (
 				590CB06328ACCC9100CD847E /* Data */,
 				590CB05E28AC9AA900CD847E /* Helpers */,
+				5916428C28B587FF00AB6876 /* Code Bar Test Group */,
 				590CB05A28AC9A5000CD847E /* Recipe Tests Group */,
 				5916428928B5849200AB6876 /* Search VM Test Group */,
 				590CB05D28AC9A8500CD847E /* Search Results VM Test Group */,
@@ -660,9 +677,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				590CB06028AC9AB500CD847E /* ServiceError.swift in Sources */,
+				5916429028B5916800AB6876 /* ProductsResponseTests.swift in Sources */,
 				590CB06B28ACCDF400CD847E /* DecodableTestCase.swift in Sources */,
 				590CB06228AC9AEC00CD847E /* Data+Extensions.swift in Sources */,
 				590CB05C28AC9A6C00CD847E /* MockRecipesNetwork.swift in Sources */,
+				5916429228B596AC00AB6876 /* ProductsAPINetworkTests.swift in Sources */,
+				5916428E28B5882E00AB6876 /* MockProductsNetwork.swift in Sources */,
 				59C4763428AC91DB005266F4 /* SearchResultsVMTests.swift in Sources */,
 				590CB06928ACCDD100CD847E /* RecipesResponseTests.swift in Sources */,
 				5916428B28B584C000AB6876 /* SearchVMTests.swift in Sources */,
