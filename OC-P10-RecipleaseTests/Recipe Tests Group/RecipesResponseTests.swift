@@ -10,7 +10,7 @@ import XCTest
 
 class RecipesResponseTests: XCTestCase, DecodableTestCase { // 2
     
-    var jsonResp: RecipesResponse! // 3
+    var sut: RecipesResponse! // 3
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -18,21 +18,21 @@ class RecipesResponseTests: XCTestCase, DecodableTestCase { // 2
     }
     
     override func tearDownWithError() throws {
-        jsonResp = nil // 5
+        sut = nil // 5
         try super.tearDownWithError()
     }
     
     // MARK: - Type Tests
     func testConformsToDecodable() { // 6
-        XCTAssertTrue((jsonResp as Any) is Decodable) // cast silences a warning
+        XCTAssertTrue((sut as Any) is Decodable) // cast silences a warning
     }
     
     func testConformsToEquatable() { // 7
-        XCTAssertEqual(jsonResp, jsonResp) // requires Equatable conformance
+        XCTAssertEqual(sut, sut) // requires Equatable conformance
     }
     
     func testDecodableSetsDocs() { // 8
-        XCTAssertNotNil(jsonResp.hits[0].recipe.label)
-        XCTAssertEqual(jsonResp.hits.count, 1)
+        XCTAssertNotNil(sut.hits[0].recipe.label)
+        XCTAssertEqual(sut.hits.count, 1)
     }
 }
