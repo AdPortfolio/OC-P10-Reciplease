@@ -164,7 +164,7 @@ extension SearchViewModel: UITableViewDelegate {
         return configuration
     }
     
-    private func removeTwoCharacters(from text: inout String) {
+    func removeTwoCharacters(from text: inout String) {
         text.removeFirst()
         text.removeFirst()
     }
