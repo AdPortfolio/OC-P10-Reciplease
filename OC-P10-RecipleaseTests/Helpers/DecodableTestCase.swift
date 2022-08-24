@@ -10,19 +10,19 @@ import XCTest
 
 protocol DecodableTestCase: AnyObject {
     associatedtype T: Decodable
-    var jsonResp: T! { get set }
+    var sut: T! { get set }
 }
 
 extension DecodableTestCase {
     func recipesGivenSUTFromJSON(fileName: String = "\(T.self)") throws {
         let decoder = JSONDecoder()
         let data = try Data.recipeFromJSON(fileName: fileName)
-        jsonResp = try decoder.decode(T.self, from: data)
+        sut = try decoder.decode(T.self, from: data)
     }
 
-    func codeBarGivenSUTFromJSON(fileName: String = "\(T.self)") throws {
+    func productsGivenSUTFromJSON(fileName: String = "\(T.self)") throws {
         let decoder = JSONDecoder()
         let data = try Data.codeBarFromJSON(fileName: fileName)
-        jsonResp = try decoder.decode(T.self, from: data)
+        sut = try decoder.decode(T.self, from: data)
     }
 }
