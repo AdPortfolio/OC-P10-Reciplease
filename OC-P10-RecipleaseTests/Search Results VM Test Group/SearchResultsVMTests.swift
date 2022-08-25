@@ -36,4 +36,13 @@ class SearchResultsVMTests: XCTestCase {
         sut.viewDidLoad()
         waitForExpectations(timeout: 1.0, handler: nil)
     }
+    
+    func testArrayOfRecipeCellViewModels_WhenRecipeAskedForAParticularRow_ThenReturnedResultIsCorrect() {
+        let recipeCellViewModel = RecipeCellViewModel(label: "label", image: "imageUrl", url: "recipeUrl", yield: 1.0, ingredientLines: ["ingredientLines"], totalTime: 0.1, favorites: false)
+        sut.recipeCellViewModels = [recipeCellViewModel]
+        let indexPath = IndexPath(row: 0, section: 0)
+        let result = sut.getCellViewModel(at: indexPath).label
+        
+        XCTAssertEqual(result, recipeCellViewModel.label)
+    }
 }
