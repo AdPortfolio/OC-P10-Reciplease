@@ -111,23 +111,19 @@ final class FavoritesViewController: UIViewController {
             let path = Bundle.main.path(forResource: "favoritesAnim", ofType: "json") ?? ""
         favLottieView.backgroundColor = .clear
         favLottieView.animation = Animation.filepath(path)
-      
         favLottieView.animationSpeed = 0.3
         favLottieView.play()
     }
     
-    private func showAnimation() {
-        self.favLottieView.isHidden = false
-        self.lottieLabel.isHidden = false
-        self.favLottieView.play()
+    private func hideAnimation(bool: Bool) {
+        self.favLottieView.isHidden = bool
+        self.lottieLabel.isHidden = bool
+        if bool == false {
+            self.favLottieView.play()
+        }
     }
-    
-    private func hideAnimation() {
-        self.favLottieView.isHidden = true
-        self.lottieLabel.isHidden = true
-    }
-    
 }
+
 // MARK: - View Model Binding
 extension FavoritesViewController {
     private func bind(to: FavoritesViewModel){
@@ -154,9 +150,9 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.recipeCellViewModels.count == 0 {
-            showAnimation()
+            hideAnimation(bool: false)
         } else {
-            hideAnimation()
+            hideAnimation(bool: true)
         }
         
         return viewModel.recipeCellViewModels.count
@@ -182,8 +178,8 @@ extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [self] _,_,_  in
-            
-            guard var recipes = recipes else {
+
+            guard var recipes = viewModel.recipes else {
                 return
             }
             

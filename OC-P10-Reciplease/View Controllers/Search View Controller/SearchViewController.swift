@@ -209,9 +209,9 @@ final class SearchViewController: UIViewController {
         return text
     }
     
-    private func showHideAnimation() {
-        self.basketLottieView.isHidden = false
-        self.lottieLabel.isHidden = false
+    private func hideAnimation(bool: Bool) {
+        self.basketLottieView.isHidden = bool
+        self.lottieLabel.isHidden = bool
     }
 }
 
@@ -264,7 +264,7 @@ extension SearchViewController {
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ingredientsArray.count == 0 {
-            showHideAnimation()
+            hideAnimation(bool: false)
         }
         return ingredientsArray.count
     }
