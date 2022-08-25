@@ -22,7 +22,6 @@ enum ServiceError: Swift.Error {
             return "An error occured please try again"
         case .noDataReceived:
             return "An error occured please try again"
-          
         }
     }
 }

@@ -35,6 +35,4 @@ class DirectionsVMTests: XCTestCase {
         sut.viewDidLoad()
         waitForExpectations(timeout: 1.0, handler: nil)
     }
-
-    
 }
