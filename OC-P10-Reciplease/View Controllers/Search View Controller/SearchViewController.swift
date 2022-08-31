@@ -67,6 +67,7 @@ final class SearchViewController: UIViewController {
     private let fridgeLabel = LabelBuilder()
         .setBackgroundColor(with: .systemGray5)
         .setTextAlignment(to: .center)
+        .setAccessibilityLabel(as: "Qu'avez-vous dans votre frigo?")
         .setFont(to: "PingFangHK-Light", with: 25, and: .body)
         .setTextColor(with: .systemGreen)
         .setMaxContentSizeCategory(as: .extraExtraLarge)
@@ -96,6 +97,7 @@ final class SearchViewController: UIViewController {
     private let ingredientsTextField = TextFieldBuilder()
         .setPlaceHolderString(placeholderString: "Lemon, Cheese, Sausages...", placeholderForegroundColor: .tertiaryLabel, placeholderFont: .boldSystemFont(ofSize: 17))
         .setFont(textStyle: .headline, scaledFont: .systemFont(ofSize: 17))
+        .setAccessibilityLabel(as: "Ingrédients")
         .build()
     
     // Table View
@@ -126,7 +128,7 @@ final class SearchViewController: UIViewController {
     private let searchButton = ButtonBuilder()
         .setBackgroundColor(color: .systemGreen)
         .setTintColor(color: .label)
-        .setAccessibilityLabel(text: "Ajouter à la liste")
+        .setAccessibilityLabel(text: "Lancer la recherche")
         .setCordnerRadius(value: 5)
         .setTitleLabelFont(to: "Avenir-Light", with: 27, and: .body)
         .setMaxContentSizeCategory(as: .extraExtraLarge)

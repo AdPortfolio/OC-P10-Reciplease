@@ -90,6 +90,7 @@ extension SearchResultsViewController: UITableViewDataSource {
             fatalError("Unable to Dequeue Photo Table View Cell")
         }
         let cellVM = viewModel.getCellViewModel(at: indexPath)
+        cell.accessibilityLabel = cellVM.label
         cell.cellViewModel = cellVM
         return cell
     }

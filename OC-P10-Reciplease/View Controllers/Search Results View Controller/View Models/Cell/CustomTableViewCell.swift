@@ -77,8 +77,7 @@ final class CustomTableViewCell: UITableViewCell {
         let layer = CAGradientLayer()
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x: 0, y: 1.0)
-        layer.colors = [
-            UIColor.clear.cgColor,UIColor.black.cgColor]
+        layer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
         return layer
     }()
     

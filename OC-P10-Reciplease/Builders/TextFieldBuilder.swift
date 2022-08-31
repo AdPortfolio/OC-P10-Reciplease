@@ -12,6 +12,7 @@ final class TextFieldBuilder {
     private var attributedPlaceholder =  NSAttributedString()
     private var font = UIFont()
     private var textColor = UIColor()
+    private var accessibilityLabel = String()
     
     func setPlaceHolderString(placeholderString: String, placeholderForegroundColor: UIColor, placeholderFont: UIFont) -> TextFieldBuilder {
         self.attributedPlaceholder = NSAttributedString(string: placeholderString, attributes: [.foregroundColor : placeholderForegroundColor, .font: placeholderFont])
@@ -30,6 +31,11 @@ final class TextFieldBuilder {
     
     func setTextColor(color: UIColor) -> TextFieldBuilder {
         self.textColor = color
+        return self
+    }
+    
+    func setAccessibilityLabel(as label: String) -> TextFieldBuilder {
+        self.accessibilityLabel = label
         return self
     }
     

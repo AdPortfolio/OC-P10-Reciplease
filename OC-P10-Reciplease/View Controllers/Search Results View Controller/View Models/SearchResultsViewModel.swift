@@ -19,6 +19,7 @@ final class SearchResultsViewModel: NSObject {
     var reloadTableView: (() -> Void)?
     
     var didGetDetails: ((RecipeCellViewModel) -> Void)?
+   
     var recipeCellViewModels = [RecipeCellViewModel]() {
         didSet {
             reloadTableView?()
