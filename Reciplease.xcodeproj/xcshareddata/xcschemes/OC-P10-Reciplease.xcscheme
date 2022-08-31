@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "59CB51C628A82C82001CC061"
-               BuildableName = "OC-P10-Reciplease.app"
-               BlueprintName = "OC-P10-Reciplease"
-               ReferencedContainer = "container:OC-P10-Reciplease.xcodeproj">
+               BuildableName = "Reciplease.app"
+               BlueprintName = "Reciplease"
+               ReferencedContainer = "container:Reciplease.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "59C4762928AC917B005266F4"
-               BuildableName = "OC-P10-RecipleaseTests.xctest"
-               BlueprintName = "OC-P10-RecipleaseTests"
-               ReferencedContainer = "container:OC-P10-Reciplease.xcodeproj">
+               BuildableName = "RecipleaseTests.xctest"
+               BlueprintName = "RecipleaseTests"
+               ReferencedContainer = "container:Reciplease.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "59CB51C628A82C82001CC061"
-            BuildableName = "OC-P10-Reciplease.app"
-            BlueprintName = "OC-P10-Reciplease"
-            ReferencedContainer = "container:OC-P10-Reciplease.xcodeproj">
+            BuildableName = "Reciplease.app"
+            BlueprintName = "Reciplease"
+            ReferencedContainer = "container:Reciplease.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "59CB51C628A82C82001CC061"
-            BuildableName = "OC-P10-Reciplease.app"
-            BlueprintName = "OC-P10-Reciplease"
-            ReferencedContainer = "container:OC-P10-Reciplease.xcodeproj">
+            BuildableName = "Reciplease.app"
+            BlueprintName = "Reciplease"
+            ReferencedContainer = "container:Reciplease.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

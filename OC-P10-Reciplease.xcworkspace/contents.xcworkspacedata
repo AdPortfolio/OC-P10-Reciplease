@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:OC-P10-Reciplease.xcodeproj">
+      location = "group:/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/Reciplease.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

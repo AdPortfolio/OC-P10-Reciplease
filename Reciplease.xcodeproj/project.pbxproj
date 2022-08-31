@@ -111,9 +111,9 @@
 		59729B1128AAD6CD00D3F642 /* QuickActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionHandler.swift; sourceTree = "<group>"; };
 		59729B1328AB199100D3F642 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataProperties.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		59729B1428AB199200D3F642 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recipe+CoreDataClass.swift"; path = "/Users/walimaloui/Documents/Ultimate Dev:Design Folder/DevFolder/Work/All Apps/OpenClassrooms/P10_aloui_walim/OC-P10-Reciplease/OC-P10-Reciplease/CoreData/Recipe+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		59C4762A28AC917B005266F4 /* OC-P10-RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OC-P10-RecipleaseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C4762A28AC917B005266F4 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C4763328AC91DB005266F4 /* SearchResultsVMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsVMTests.swift; sourceTree = "<group>"; };
-		59CB51C728A82C82001CC061 /* OC-P10-Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-P10-Reciplease.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CB51C728A82C82001CC061 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CB51CA28A82C82001CC061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59CB51CE28A82C82001CC061 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		59CB51D328A82C83001CC061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -300,8 +300,8 @@
 		59CB51C828A82C82001CC061 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				59CB51C728A82C82001CC061 /* OC-P10-Reciplease.app */,
-				59C4762A28AC917B005266F4 /* OC-P10-RecipleaseTests.xctest */,
+				59CB51C728A82C82001CC061 /* Reciplease.app */,
+				59C4762A28AC917B005266F4 /* RecipleaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -569,9 +569,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		59C4762928AC917B005266F4 /* OC-P10-RecipleaseTests */ = {
+		59C4762928AC917B005266F4 /* RecipleaseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59C4763028AC917B005266F4 /* Build configuration list for PBXNativeTarget "OC-P10-RecipleaseTests" */;
+			buildConfigurationList = 59C4763028AC917B005266F4 /* Build configuration list for PBXNativeTarget "RecipleaseTests" */;
 			buildPhases = (
 				59C4762628AC917B005266F4 /* Sources */,
 				59C4762728AC917B005266F4 /* Frameworks */,
@@ -582,14 +582,14 @@
 			dependencies = (
 				59C4762F28AC917B005266F4 /* PBXTargetDependency */,
 			);
-			name = "OC-P10-RecipleaseTests";
+			name = RecipleaseTests;
 			productName = "OC-P10-RecipleaseTests";
-			productReference = 59C4762A28AC917B005266F4 /* OC-P10-RecipleaseTests.xctest */;
+			productReference = 59C4762A28AC917B005266F4 /* RecipleaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		59CB51C628A82C82001CC061 /* OC-P10-Reciplease */ = {
+		59CB51C628A82C82001CC061 /* Reciplease */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59CB51DB28A82C83001CC061 /* Build configuration list for PBXNativeTarget "OC-P10-Reciplease" */;
+			buildConfigurationList = 59CB51DB28A82C83001CC061 /* Build configuration list for PBXNativeTarget "Reciplease" */;
 			buildPhases = (
 				CA3722F3C3115D4E9F78F5A9 /* [CP] Check Pods Manifest.lock */,
 				59CB51C328A82C82001CC061 /* Sources */,
@@ -601,9 +601,9 @@
 			);
 			dependencies = (
 			);
-			name = "OC-P10-Reciplease";
+			name = Reciplease;
 			productName = "OC-P10-Reciplease";
-			productReference = 59CB51C728A82C82001CC061 /* OC-P10-Reciplease.app */;
+			productReference = 59CB51C728A82C82001CC061 /* Reciplease.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -626,7 +626,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 59CB51C228A82C82001CC061 /* Build configuration list for PBXProject "OC-P10-Reciplease" */;
+			buildConfigurationList = 59CB51C228A82C82001CC061 /* Build configuration list for PBXProject "Reciplease" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -639,8 +639,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				59CB51C628A82C82001CC061 /* OC-P10-Reciplease */,
-				59C4762928AC917B005266F4 /* OC-P10-RecipleaseTests */,
+				59CB51C628A82C82001CC061 /* Reciplease */,
+				59C4762928AC917B005266F4 /* RecipleaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -790,7 +790,7 @@
 /* Begin PBXTargetDependency section */
 		59C4762F28AC917B005266F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 59CB51C628A82C82001CC061 /* OC-P10-Reciplease */;
+			target = 59CB51C628A82C82001CC061 /* Reciplease */;
 			targetProxy = 59C4762E28AC917B005266F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -828,7 +828,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OC-P10-Reciplease.app/OC-P10-Reciplease";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
 			};
 			name = Debug;
 		};
@@ -852,7 +852,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OC-P10-Reciplease.app/OC-P10-Reciplease";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
 			};
 			name = Release;
 		};
@@ -1031,7 +1031,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		59C4763028AC917B005266F4 /* Build configuration list for PBXNativeTarget "OC-P10-RecipleaseTests" */ = {
+		59C4763028AC917B005266F4 /* Build configuration list for PBXNativeTarget "RecipleaseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59C4763128AC917B005266F4 /* Debug */,
@@ -1040,7 +1040,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59CB51C228A82C82001CC061 /* Build configuration list for PBXProject "OC-P10-Reciplease" */ = {
+		59CB51C228A82C82001CC061 /* Build configuration list for PBXProject "Reciplease" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59CB51D928A82C83001CC061 /* Debug */,
@@ -1049,7 +1049,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59CB51DB28A82C83001CC061 /* Build configuration list for PBXNativeTarget "OC-P10-Reciplease" */ = {
+		59CB51DB28A82C83001CC061 /* Build configuration list for PBXNativeTarget "Reciplease" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59CB51DC28A82C83001CC061 /* Debug */,
