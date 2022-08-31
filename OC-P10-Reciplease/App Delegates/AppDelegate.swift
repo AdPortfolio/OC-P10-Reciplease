@@ -49,5 +49,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        QuickActionHandler.shared.handleQuickAction(shortcutItem)
     }
 }
